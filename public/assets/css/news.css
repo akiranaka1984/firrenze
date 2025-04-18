@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+
+/* event */
+#event {padding-top:40px;}
+
+#event .inner:first-of-type {padding-top:0;}
+#event .inner:nth-of-type(even) {background:#FFF;}
+
+#event .inner .txt {margin-top:16px;}
+
+#event .inner .txt p:nth-of-type(1) {font-size:117%;}
+#event .inner .txt p:nth-of-type(2) {margin-top:4px;}
+
+
+@media screen and (min-width:1024px) {
+	#event {padding-top:80px;}
+
+	#event .inner .txt {margin-top:24px;}
+
+	#event .inner .txt p:nth-of-type(1) {font-size:143%;}
+	#event .inner .txt p:nth-of-type(2) {margin-top:8px;}
+}
+
+
+
+/* event_detail */
+#event_detail .txt {margin-top:16px;}
+
+
+@media screen and (min-width:1024px) {
+	#event_detail .txt {margin-top:24px;}
+}
+
+

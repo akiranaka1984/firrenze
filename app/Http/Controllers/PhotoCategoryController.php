@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\PhotoCategory;
+
+class PhotoCategoryController extends Controller
+{
+    public function index(Request $request)
+    {
+        $categories = PhotoCategory::where(['status'=>1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
+        return view('admin.photo_category.list', compact('categories'));
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate([ 'name' => 'required' ]);
+
+        if(empty($request->id)){
+            $count = PhotoCategory::max('position');
+            PhotoCategory::create(['name'=>$request->name, 'position'=>($count+1)]);
+            return redirect()->back()->with('success', __('Save Changes'));
+        }else{
+            PhotoCategory::where(['id'=>$request->id])->update(['name'=>$request->name]);
+            return redirect()->back()->with('success', __('Save Changes'));
+        }
+        
+    }
+
+    public function delete(Request $request)
+    {
+        PhotoCategory::where(['id'=>$request->id])->update(['status'=>0, 'position'=>0]);
+        return redirect()->back()->with('success', __('Save Changes'));
+    }
+
+    public function position(Request $request)
+    {
+        PhotoCategory::where('id','>',0)->update(['position'=>0]);
+        foreach($request->data as $key => $data){
+            PhotoCategory::where(['id'=>$key])->update(['position'=>$data]);
+        }
+
+        return response()->json(['status' => 1, 'message' => 'success']);
+    }
+    
+
+}

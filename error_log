@@ -1,0 +1,43 @@
+[16-Apr-2024 05:22:42 UTC] PHP Warning:  require(/home/tlgtppug/public_html/fizenze_dev/vendor/autoload.php): Failed to open stream: No such file or directory in /home/tlgtppug/public_html/fizenze_dev/artisan on line 18
+[16-Apr-2024 05:22:42 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/tlgtppug/public_html/fizenze_dev/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/tlgtppug/public_html/fizenze_dev/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/artisan on line 18
+[16-Apr-2024 05:22:42 UTC] PHP Warning:  require(/home/tlgtppug/public_html/fizenze_dev/vendor/autoload.php): Failed to open stream: No such file or directory in /home/tlgtppug/public_html/fizenze_dev/artisan on line 18
+[16-Apr-2024 05:22:42 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/tlgtppug/public_html/fizenze_dev/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/tlgtppug/public_html/fizenze_dev/artisan:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/artisan on line 18
+[09-Nov-2024 16:10:42 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:10:42 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:10:42 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:10:42 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:13:35 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:13:35 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:13:35 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:13:35 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:15:27 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:15:27 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:15:27 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:15:27 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:16:39 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:16:39 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:16:39 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:16:39 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:19:27 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:19:27 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:19:27 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:19:27 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:20:10 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:20:10 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:20:10 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:20:10 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:24:38 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:24:38 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 16:24:38 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 16:24:38 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 18:00:24 Asia/Tokyo] PHP Fatal error:  Declaration of Illuminate\Database\PDO\Concerns\ConnectsToDatabase::connect(array $params) must be compatible with Doctrine\DBAL\Driver::connect(array $params): Doctrine\DBAL\Driver\Connection in /home/tlgtppug/public_html/firenze_dev/vendor/laravel/framework/src/Illuminate/Database/PDO/Concerns/ConnectsToDatabase.php on line 19
+[09-Nov-2024 18:04:33 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 18:04:33 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[09-Nov-2024 18:04:33 Asia/Tokyo] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home/tlgtppug/public_html/firenze_dev/vendor/psr/log/src/LoggerInterface.php on line 30
+[09-Nov-2024 18:04:33 Asia/Tokyo] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0

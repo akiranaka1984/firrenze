@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # /s/ で始まる全てのURLを https://club-firenze.net にリダイレクト
+    RewriteRule ^s/(.*)$ https://club-firenze.net? [R=301,L]
+
+    # 既存のルール
+    RewriteCond %{QUERY_STRING} ^dsp=7$
+    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^lid=(991|912|934)$
+    RewriteRule ^s/profile$ https://club-firenze.net? [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^dsp=14$
+    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
+    RewriteCond %{QUERY_STRING} ^day=2$
+    RewriteRule ^schedule$ https://club-firenze.net? [R=301,L]
+    RewriteCond %{QUERY_STRING} ^lid=119$
+    RewriteRule ^s/profile$ https://club-firenze.net? [R=301,L]
+
+    RewriteRule ^s/recruit$ /public/recruit [R=301,L]
+    RewriteRule ^s/reservation$ /public/reservation [R=301,L]
+    RewriteRule ^s/price$ /price [R=301,L]
+    RewriteRule ^entry$ https://club-firenze.net/recruit [R=301,L]
+    RewriteRule ^girl$ https://club-firenze.net/enrollment_table [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^lid=1023$
+    RewriteRule ^profile$ /page/details/2963? [R=301,L]
+
+    RewriteRule ^pc$ https://club-firenze.net [R=301,L]
+    RewriteRule ^s/schedule$ https://club-firenze.net/attendance_sheet [R=301,L]
+    RewriteRule ^s/contact$ https://club-firenze.net [R=301,L]
+    RewriteRule ^s/concept$ https://club-firenze.net/concept [R=301,L]
+    RewriteRule ^s/newface$ https://club-firenze.net [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^dsp=153$
+    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
+
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L,QSA]
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php83” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php83 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

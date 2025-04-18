@@ -1,0 +1,364 @@
+[27-Apr-2024 18:47:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[27-Apr-2024 18:47:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[12-May-2024 13:54:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[12-May-2024 13:54:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[12-May-2024 13:55:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[12-May-2024 13:57:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[12-May-2024 13:59:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[12-May-2024 14:00:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[12-May-2024 14:00:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[16-May-2024 01:06:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[16-May-2024 01:24:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[16-May-2024 01:25:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[16-May-2024 02:02:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[16-May-2024 03:07:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[16-May-2024 05:25:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[16-May-2024 08:20:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[16-May-2024 08:32:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[16-May-2024 08:49:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[16-May-2024 09:01:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[16-May-2024 09:59:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php on line 16
+[16-May-2024 11:37:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[16-May-2024 17:29:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[31-May-2024 22:59:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[01-Jun-2024 02:50:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[01-Jun-2024 04:34:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[01-Jun-2024 11:15:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[01-Jun-2024 22:46:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[02-Jun-2024 07:41:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[02-Jun-2024 09:24:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[02-Jun-2024 10:18:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[02-Jun-2024 14:39:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[03-Jun-2024 05:19:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[03-Jun-2024 09:37:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php on line 16
+[03-Jun-2024 23:23:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[04-Jun-2024 02:16:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[22-Jun-2024 05:24:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[22-Jun-2024 06:23:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[22-Jun-2024 06:24:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[22-Jun-2024 06:43:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[22-Jun-2024 07:22:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[22-Jun-2024 10:04:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[22-Jun-2024 10:33:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[22-Jun-2024 12:23:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php on line 16
+[22-Jun-2024 13:41:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[22-Jun-2024 17:01:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[22-Jun-2024 18:54:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[22-Jun-2024 19:32:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[22-Jun-2024 22:13:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[28-Jun-2024 06:09:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/hashing.php on line 32
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/app.php on line 16
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php on line 16
+[28-Jun-2024 06:10:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[28-Jun-2024 06:10:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/filesystems.php on line 16
+[28-Jun-2024 06:10:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[28-Jun-2024 06:10:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[28-Jun-2024 06:10:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[28-Jun-2024 06:10:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[28-Jun-2024 06:10:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[28-Jun-2024 06:10:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/services.php on line 18
+[28-Jun-2024 06:10:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[28-Jun-2024 06:11:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/cache.php on line 18
+[28-Jun-2024 06:11:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/database.php on line 18
+[28-Jun-2024 06:11:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/logging.php on line 20
+[28-Jun-2024 06:11:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/tlgtppug/public_html/fizenze_dev/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/view.php on line 17
+[28-Jun-2024 06:11:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/broadcasting.php on line 18
+[28-Jun-2024 06:11:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/session.php on line 21
+[28-Jun-2024 06:12:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/queue.php on line 16
+[19-Jul-2024 07:34:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/mail.php on line 16
+[22-Jul-2024 21:47:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/tlgtppug/public_html/fizenze_dev/config/sanctum.php on line 16

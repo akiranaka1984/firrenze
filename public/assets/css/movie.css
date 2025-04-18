@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+
+
+/* movie */
+#movie {padding-bottom:16px;}
+
+
+@media screen and (min-width:1024px) {
+	#movie {padding-bottom:40px;}
+}
+
+
+
+/* image */
+.movie .image {margin-top:24px;}
+
+.movie .image img:last-of-type {display:none;}
+
+
+@media screen and (min-width:1024px) {
+	.movie .image {margin-top:40px;}
+
+	.movie .image img:first-of-type {display:none !important;}
+	.movie .image img:last-of-type {display:block !important;}
+}
+
+
+
+/* footer_bnr */
+#footer_bnr {background:#333;}
+
+

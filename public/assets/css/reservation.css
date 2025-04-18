@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+
+
+/* txt */
+#reservation .txt {margin-bottom:24px;}
+
+
+@media screen and (min-width:1024px) {
+	#reservation .txt {
+		margin-bottom:40px;
+	}
+}
+
+
+
+/* form */
+#reservation .form .btn_area {margin-top:24px;}
+
+#reservation .form .btn_area .btn {
+	width:calc(50% - 8px);
+	margin-top:0 !important;
+}
+
+#reservation .error {
+	color:#FF1A1A;
+}
+
+
+@media screen and (min-width:1024px) {
+	#reservation .form {
+		margin:0 auto;
+		padding: 20px;
+		background: #FFF;
+	}
+
+	#reservation .form .btn_area {margin-top:40px;}
+
+	#reservation .form .btn_area .btn {margin:0;}
+}
+
+
+
+/* finish */
+#reservation .caution {
+	margin-top:24px;
+	color:#F00;
+}
+
+
+@media screen and (min-width:1024px) {
+	#reservation .finish {text-align:center;}
+
+	#reservation .caution {margin-top:40px;}
+}
+
+
+
+/* footer_bnr */
+#footer_bnr {background:#333;}
+
+
+#reserve_box{
+    padding: 30px 30px 40px;
+    margin-bottom: 50px;
+	font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#reserve_box dt {
+    font-size: 16px;
+    width: 28%;
+    float: left;
+    height: 80px;
+    line-height: 80px;
+}
+
+#reserve_box dd {
+    width: 72%;
+    float: right;
+    height: 70px;
+    padding-top: 10px;
+    position: relative;
+}
+
+#reserve_box dt span {
+    color: #f00;
+}
+
+#reserve_box dd input[type=text], 
+#reserve_box dd select, 
+#reserve_box dd textarea{
+	display: block;
+    box-sizing: border-box;
+    width: 300px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 12px 15px;
+    margin: 3px 0;
+    font-size: 14px;
+	border: 1px solid #CCC;
+}
+
+.linetxt {
+    position: absolute;
+    width: 50%;
+    top: 16px;
+    right: 26px;
+}
+
+.reserve_list {
+    overflow: hidden;
+}
+
+.reserve_list li {
+    width: 30%;
+    float: left;
+    margin-right: 10px;
+}
+
+#reserve_box dd .reserve_list input[type=text] {
+    width: 100%;
+}
+
+#reserve_box dt.day {
+    height: 228px;
+}
+
+#reserve_box dd.day {
+    height: 228px;
+}
+
+#reserve_box dd .reserve_list2 li {
+    font-size: 16px;
+}
+
+#reserve_box dd .reserve_list2 select {
+    display: inline-block;
+    width: 100px;
+	border: 1px solid #CCC;
+	line-height: 13px;
+}
+
+.contact_bottom_txt {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contact_bottom_txt em {
+    font-size: 14px;
+    color: #f00;
+}
+
+#reserve_box dt.largeinput, #reserve_box dt.textarea {
+    clear: both;
+    float: none;
+    width: 100%;
+    height: auto;
+    margin-bottom: -14px;
+}
+
+#reserve_box dd.largeinput, #reserve_box dd.textarea {
+    float: none;
+    width: 100%;
+    height: auto;
+}
+
+#reserve_box dd.largeinput input[type=text] {
+    width: 100%;
+}
+
+#reserve_box dt.textarea em {
+    font-size: 16px;
+    color: #f00;
+}
+
+#reserve_box dd textarea {
+    width: 100%;
+    min-height: 140px;
+}
+
+#reserve_btn {
+    text-align: center;
+}
+.g-recaptcha {
+    margin: 20px auto;
+    width: 304px;
+    height: 78px;
+}
+
+#reserve_btn button:disabled {
+    width: 330px;
+    height: 70px;
+    color: #fff;
+    font-size: 19px !important;
+    font-weight: bold;
+    background-color: #5a5a5a;
+    border-radius: 3px;
+}
+
+#reserve_btn button {
+    width: 330px;
+    height: 70px;
+    color: #fff;
+    font-size: 19px !important;
+    font-weight: bold;
+    background-color: #ae1641;
+    border-radius: 3px;
+}
+
+.is-invalid{
+	border:1px solid #FF1A1A !important;
+}
+
+.d-grid{
+	display: inline-grid;
+}
