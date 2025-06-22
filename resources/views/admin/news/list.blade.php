@@ -116,7 +116,18 @@
                             <div class="form-group">
                                 <label for="frmCompanionId" class="col-sm-3 control-label">添付写真コンパニオン</label>
                                 <div class="col-sm-8 frm-inpt">
-                                    <select name="companion_id" id="frmCompanionId" >
+                                    <!-- 検索ボックス (オプション) -->
+                                    <div class="input-group mb-2" style="display: none;">
+                                        <input type="text" id="companionSearchDirect" class="form-control" placeholder="名前で検索...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Select2を適用するセレクトボックス -->
+                                    <select name="companion_id" id="frmCompanionId" class="form-control">
                                         <option value=""></option>
                                         @foreach($companionLists as $companionList)
                                             <option value="{{ $companionList->id }}">{{ $companionList->name }}({{ $companionList->age }})</option>
@@ -138,6 +149,22 @@
         </div>
     </div>
 </div>
+<style>
+    .companion-results {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    
+    .companion-list-item:hover {
+        background-color: #f5f5f5;
+    }
+    
+    .companion-list-item:last-child {
+        border-bottom: none !important;
+    }
+</style>
 
 <script>
     let nPsitionObj = {}
@@ -234,6 +261,38 @@
         })
 
         resetPosition()
+
+        // Select2ライブラリを使った検索可能なドロップダウン
+        $('#frmCompanionId').select2({
+            placeholder: 'コンパニオンを選択...',
+            allowClear: true,
+            width: '100%',
+            language: {
+                searching: function() {
+                    return "検索中...";
+                },
+                noResults: function() {
+                    return "該当するコンパニオンが見つかりません";
+                }
+            }
+        });
+    
+        // 検索ボックスによる直接フィルタリング
+        $('#companionSearchDirect').on('keyup', function() {
+            var searchText = $(this).val().toLowerCase();
+            
+            // Select2のドロップダウンを開く
+            $('#frmCompanionId').select2('open');
+            
+            // 検索テキストを Select2 の検索ボックスに設定
+            $('.select2-search__field').val(searchText).trigger('input');
+        });
+        
+        // Select2で選択後の処理
+        $('#frmCompanionId').on('select2:select', function(e) {
+            // 選択された値をコンソールに表示（デバッグ用）
+            console.log('選択されたコンパニオン:', e.params.data.text);
+        });
 
     })
     function openEditModal(data) {

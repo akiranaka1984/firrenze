@@ -50,6 +50,30 @@ class CompanionController extends Controller
         return view('admin.companion.list', compact('companions', 'search_q'));
     }
 
+    public function photo_delete(Request $request)
+    {
+        try {
+            // 削除対象の写真を取得
+            $photo = CompanionPhoto::findOrFail($request->photo_id);
+            
+            // 物理ファイルのパスを取得（クエリパラメータを除去）
+            $fileNameWithoutQuery = preg_replace('/\?v=.*$/', '', $photo->photo);
+            $filePath = 'public/photos/' . $photo->companion_id . '/' . $fileNameWithoutQuery;
+            
+            // ファイルが存在する場合、ストレージから削除
+            if (Storage::exists($filePath)) {
+                Storage::delete($filePath);
+            }
+            
+            // データベースから写真レコードを削除
+            $photo->delete();
+            
+            return response()->json(['status' => 1, 'message' => __('Successfully deleted')]);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 0, 'message' => __('Failed to delete the photo') . ': ' . $e->getMessage()]);
+        }
+    }
+
 
     //public function showEnrollmentTable()
     //{
@@ -102,60 +126,62 @@ class CompanionController extends Controller
     }
 
     public function save(Request $request)
-{
-    // ここでリクエストの内容をログに記録
-    Log::info('Save Request Data:', $request->all());
-
-    // バリデーション
-    $request->validate([
-        'category_id' => 'required',
-        'frm_name' => 'required',
-        'frm_kana' => 'required',
-        'frm_age' => 'required',
-        'frm_height' => 'required',
-        'frm_bust' => 'required',
-        'frm_cup' => 'required',
-        'frm_waist' => 'required',
-        'frm_hip' => 'required',
-        'frm_rookie' => 'required',
-        'frm_sale_point' => 'required',
-        'frm_entry_date' => 'required'
-    ]);
-
-    $count = Companion::max('position');
-
-    $companion = Companion::create([
-        'category_id' => $request->category_id,
-        'name' => $request->frm_name,
-        'kana' => $request->frm_kana,
-        'age' => $request->frm_age,
-        'height' => $request->frm_height,
-        'bust' => $request->frm_bust,
-        'cup' => $request->frm_cup,
-        'waist' => $request->frm_waist,
-        'hip' => $request->frm_hip,
-        'rookie' => implode(', ', $request->frm_rookie),
-        'hobby' => $request->frm_hobby,
-        'sale_point' => $request->frm_sale_point,
-        'font_color' => $request->frm_font_color,
-        'message' => $request->short_message,
-        'entry_date' => $request->frm_entry_date,
-        'position' => ($count + 1),
-        'previous_position' => $request->frm_position,
-        'celebrities_who_look_alike' => $request->frm_celebrities_who_look_alike
-    ]);
-
-    // データベースに保存されたことを確認してログに記録
-    if ($companion) {
-        Log::info('Companion created successfully:', $companion->toArray());
-    } else {
-        Log::error('Companion creation failed.');
-        return redirect()->back()->with('error', 'モデルの登録に失敗しました');
-    }
-
-    $this->savePhoto($request, $companion->id);
-
-    Log::info('Redirecting to list...');
+    {
+        // ここでリクエストの内容をログに記録
+        Log::info('Save Request Data:', $request->all());
+    
+        // バリデーション
+        $request->validate([
+            'category_id' => 'required',
+            'frm_name' => 'required',
+            'frm_kana' => 'required',
+            'frm_age' => 'required',
+            'frm_height' => 'required',
+            'frm_bust' => 'required',
+            'frm_cup' => 'required',
+            'frm_waist' => 'required',
+            'frm_hip' => 'required',
+            'frm_rookie' => 'required',
+            'frm_sale_point' => 'required',
+            'frm_entry_date' => 'required'
+        ]);
+    
+        // 現在の全モデルのpositionを1つずつ増やす
+        Companion::increment('position');
+    
+        // 新規モデルを作成し、positionを1（最小値）に設定して一番上に表示
+        $companion = Companion::create([
+            'category_id' => $request->category_id,
+            'name' => $request->frm_name,
+            'kana' => $request->frm_kana,
+            'age' => $request->frm_age,
+            'height' => $request->frm_height,
+            'bust' => $request->frm_bust,
+            'cup' => $request->frm_cup,
+            'waist' => $request->frm_waist,
+            'hip' => $request->frm_hip,
+            'rookie' => implode(', ', $request->frm_rookie),
+            'hobby' => $request->frm_hobby,
+            'sale_point' => $request->frm_sale_point,
+            'font_color' => $request->frm_font_color,
+            'message' => $request->short_message,
+            'entry_date' => $request->frm_entry_date,
+            'position' => 1, // 最小値を設定して一番上に表示
+            'previous_position' => $request->frm_position,
+            'celebrities_who_look_alike' => $request->frm_celebrities_who_look_alike
+        ]);
+    
+        // データベースに保存されたことを確認してログに記録
+        if ($companion) {
+            Log::info('Companion created successfully:', $companion->toArray());
+        } else {
+            Log::error('Companion creation failed.');
+            return redirect()->back()->with('error', 'モデルの登録に失敗しました');
+        }
+    
+        $this->savePhoto($request, $companion->id);
+    
+        Log::info('Redirecting to list...');
         return redirect()->route('admin.companion.list')->with('success', 'モデルが正常に登録されました');
     }
 

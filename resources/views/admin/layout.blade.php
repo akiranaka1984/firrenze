@@ -54,6 +54,9 @@
         <script src="{{ url('/assets/js/bootstrap.js') }}"></script>
         <script src="{{ url('/assets/js/jquery.validate.min.js') }}"></script>
         <script src="{{ url('/assets/js/additional-methods.min.js') }}"></script>
+        <!-- レイアウトファイルのheadセクションに追加 -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     </head>
 

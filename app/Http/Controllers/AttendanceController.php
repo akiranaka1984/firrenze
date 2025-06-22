@@ -200,5 +200,18 @@ class AttendanceController extends Controller
 
         return response()->json(['status' => 1, 'message' => __('Save Changes')]);
     }
+    public function bulk_delete(Request $request)
+    {
+        try {
+            // 日付とコンパニオンIDに一致する出勤レコードを削除
+            Attendance::where('companion_id', $request->companion)
+                     ->where('date', $request->date)
+                     ->delete();
+            
+            return response()->json(['status' => 1, 'message' => __('削除しました')]);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 0, 'message' => $e->getMessage()]);
+        }
+    }
 
 }

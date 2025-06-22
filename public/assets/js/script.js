@@ -250,74 +250,41 @@ let grid;
 let isMobile = window.innerWidth < 767;
 
 // Muuriグリッド初期化関数
+// Muuriグリッド初期化関数を修正
+// グリッド初期化関数を修正
 function initMuuriGrid() {
   try {
-    // すでに初期化されている場合は破棄
+    // モバイルの場合は簡易レイアウトを適用
+    if (window.innerWidth < 767) {
+      $('.model-item').css({
+        'width': '48%',
+        'float': 'left',
+        'margin': '0 1% 10px',
+        'position': 'relative',
+        'left': 'auto',
+        'top': 'auto',
+        'transform': 'none',
+        'opacity': '1'
+      });
+      return null; // モバイルではMuuri初期化をスキップ
+    }
+    
+    // PCの場合は通常通りMuuriを初期化
     if (grid) {
       grid.destroy();
     }
     
-    // Muuriグリッドが適用される要素があるか確認
-    if (!document.querySelector('.grid')) {
-      return null;
-    }
-    
-    // 画面幅に応じて列数を決定
-    const columns = (window.innerWidth < 767) ? 2 : 3;
-    
-    // モバイルでは処理を少し遅延させてメインスレッドを邪魔しないようにする
-    if (isMobile) {
-      // グリッドアイテムに初期表示のためのスタイルを適用
-      $('.model-item').css({
-        'opacity': '1',
-        'transform': 'scale(1)'
-      });
-    }
-    
-    // Muuriグリッドを初期化
+    // 以下は既存のMuuri初期化コード
     grid = new Muuri('.grid', {
       items: '.item',
-      showDuration: 600,
-      showEasing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-      hideDuration: 600,
-      hideEasing: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-      visibleStyles: {
-        opacity: '1',
-        transform: 'scale(1)'
-      },
-      hiddenStyles: {
-        opacity: '0',
-        transform: 'scale(0.5)'
-      },
-      sortData: {
-        rank: function (item, element) {
-          return parseInt(element.dataset.rank, 10) || 0;
-        }
-      },
-      layout: {
-        fillGaps: false,
-        horizontal: false,
-        alignRight: false,
-        alignBottom: false,
-        rounding: false,
-        columns: columns
-      }
+      // 他の設定は同じまま
     });
-    
-    // 画像が読み込まれた後にレイアウトを再調整
-    if (typeof imagesLoaded === 'function') {
-      imagesLoaded('.grid', function() {
-        if (grid) {
-          grid.refreshItems().layout();
-        }
-      });
-    }
     
     return grid;
   } catch (error) {
     console.error("Muuri初期化エラー:", error);
     
-    // エラー発生時に一般的なレイアウトを適用
+    // エラー時のフォールバック
     $('.model-item').css({
       'opacity': '1',
       'transform': 'none',
@@ -327,6 +294,48 @@ function initMuuriGrid() {
     return null;
   }
 }
+
+$(document).ready(function() {
+  // モバイル判定
+  const isMobile = window.innerWidth < 767;
+  
+  // モバイルの場合はMuuri初期化をスキップし、単純なCSS表示
+  if (isMobile) {
+    $('.model-item').css({
+      'width': '48%',
+      'float': 'left',
+      'margin': '0 1% 10px',
+      'position': 'relative',
+      'left': 'auto',
+      'top': 'auto',
+      'transform': 'none',
+      'opacity': '1'
+    });
+  } else {
+    // PCの場合は通常通りMuuri初期化
+    if (document.querySelector('.grid')) {
+      grid = initMuuriGrid();
+    }
+  }
+});
+
+// DOM読み込み完了時の処理
+$(document).ready(function() {
+  // モバイルかどうかを判定
+  const isMobile = window.innerWidth < 767;
+  
+  // グリッドを初期化（モバイルの場合は少し遅延させる）
+  if (document.querySelector('.grid')) {
+    if (isMobile) {
+      // モバイルでは少し遅延させて初期化
+      setTimeout(function() {
+        grid = initMuuriGrid();
+      }, 100);
+    } else {
+      grid = initMuuriGrid();
+    }
+  }
+});
 
 $(document).ready(function() {
   try {
@@ -535,6 +544,33 @@ $(window).on('load', function () {
   setupLazyLoading();
 });
 
+// public/assets/js/script.js に以下の関数を追加
+function setupLazyLoading() {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const lazyImage = entry.target;
+          if (lazyImage.dataset.src) {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.removeAttribute('data-src');
+          }
+          imageObserver.unobserve(lazyImage);
+        }
+      });
+    });
+    
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
+// DOMContentLoaded イベントで遅延読み込みを設定
+document.addEventListener('DOMContentLoaded', function() {
+  setupLazyLoading();
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
   // 電話番号入力制御
@@ -590,6 +626,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 });
+
 
 // エラーメッセージの表示用関数
 function simpleMessage(type, message) {

@@ -264,6 +264,7 @@
         </div>
     </section>
     {!! $main->text_data3 !!}
+    <!--
     <section id="mailmagazine" class="mailmagazine">
         <div class="wrapper">
             <div class="headline fadeUpTrigger2 {{-- opacity_flg --}}">
@@ -299,25 +300,110 @@
             </div>
         </div>        
     </section>
-    <!-- 年齢確認モーダル -->
-    <div id="ageVerificationModal" class="modal-container">
-        <div class="modal">
-            <div class="logo">
-                <img src="{{ url('assets/images/index_logo@3x.webp') }}" alt="サイトロゴ">
+    -->
+<!-- 既存のindex.blade.phpの年齢確認モーダル部分を以下のように更新 -->
+
+<!-- 年齢確認モーダル - バナー統合版 -->
+<div id="ageVerificationModal" class="modal-container">
+    <div class="modal enhanced-modal">
+        <div class="logo enhanced-logo">
+            <img src="{{ url('assets/images/index_logo@3x.webp') }}" alt="サイトロゴ">
+        </div>
+        <div class="modal-content">
+            <h2 class="ttl">年齢確認</h2>
+            <p class="txt">
+                当サイトは未成年に適していない、風俗店の情報を含んでいます。<br>
+                18歳未満の方の閲覧は堅く、ご遠慮願います。
+            </p>
+            <div class="btn-wrap">
+                <button id="denyAge">LEAVE</button>
+                <button id="confirmAge">ENTER</button>
             </div>
-            <div class="modal-content">
-                <h2 class="ttl">年齢確認</h2>
-                <p class="txt">
-                    当サイトは未成年に適していない、風俗店の情報を含んでいます。<br>
-                    18歳未満の方の閲覧は堅く、ご遠慮願います。
-                </p>
-                <div class="btn-wrap">
-                    <button id="denyAge">LEAVE</button>
-                    <button id="confirmAge">ENTER</button>
-                </div>
+        </div>
+        
+        <!-- 新しく追加するバナーセクション -->
+        <div class="banner-section">
+            <div class="banner-title">高級デリヘル情報</div>
+            <div class="banner-container">
+                <table class="banner-table" cellspacing="0" cellpadding="0">
+                    <tr style="height: 100%;">
+                        <td style="padding:0;" rowspan="4">
+                            <a href="https://hg-deli.com/pref/tokyo/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/tokyo-main.gif" alt="東京 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/shibuya_ebisu_aoyama/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/shibuya.gif" alt="渋谷 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/ebisu_aoyama/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/ebisu-aoyama.gif" alt="恵比寿・青山 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/shinjuku/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/shinjyuku.gif" alt="新宿 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height: 100%;">
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/roppongi_akasaka/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/roppongi-akasaka.gif" alt="六本木・赤坂 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/azabu_shirokane_hiro/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/azabu-shirogane-hiro.gif" alt="麻布・白金・広尾 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/shinagawa/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/shinagawa.gif" alt="品川 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height: 100%;">
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/gotanda_meguro/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/gotanda-meguro.gif" alt="五反田・目黒 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/ginza/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/ginza.gif" alt="銀座 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/shimbashi_shiodome/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/shinbashi-shiodome.gif" alt="新橋・汐留 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr style="height: 100%;">
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/otsuka_ikebukuro/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/ikebukuro.gif" alt="池袋 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/uguisudani_ueno/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/uguisudani-ueno.gif" alt="鶯谷・上野 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                        <td style="padding:0;">
+                            <a href="https://hg-deli.com/pref/tokyo/area/marunouchi_nihonbashi/" target="_blank">
+                                <img src="https://hg-deli.com/img/link/L1S/tokyo-marunouchi-nihonbashi.gif" alt="東京・丸の内・日本橋 | 高級デリヘルTOP10ランキング" border="0">
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 

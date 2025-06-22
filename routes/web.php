@@ -89,6 +89,8 @@ Route::get('/admin/forgotpassword', [AuthController::class, 'forgotpassword'])->
 Route::post('/admin/forgotpassword', [AuthController::class, 'forgotpasswordSave'])->name('forgot_password_save');
 Route::get('/admin/resetpassword/{token}', [AuthController::class, 'resetpassword'])->name('reset_password');
 Route::post('/admin/resetpassword', [AuthController::class, 'resetpasswordSave'])->name('reset_password_save');
+Route::post('/admin/companion/photo/delete', [App\Http\Controllers\CompanionController::class, 'photo_delete'])->name('admin.companion.photo.delete');
+Route::post('/admin/attendance/bulk/delete', [App\Http\Controllers\AttendanceController::class, 'bulk_delete'])->name('admin.attendance.bulk.delete');
 
 Route::get('/admin/signout', [AuthController::class, 'signout'])->name('admin.signout');
 

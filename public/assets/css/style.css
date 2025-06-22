@@ -348,64 +348,6 @@ td.ui-datepicker-week-end:first-child a.ui-state-default {
 }
 
 /*********************************
-WP-PageNavi
-**********************************/
-.wp-pagenavi {
-    /* 全体 */
-    margin: 2rem 0;
-    font-size: 1.2rem;
-    font-family: Montserrat;
-}
-
-.wp-pagenavi a {
-    /* フォント色 */
-    color: #4a4a4a;
-}
-
-.pages {
-    /* 左の表記 */
-    margin-right: 2rem;
-}
-
-.wp-pagenavi .current,
-.wp-pagenavi a.page {
-    /* ボタン */
-    margin: 0 6px 6px 0;
-    display: inline-block;
-    border: solid 1px #eee;
-    width: 3rem;
-    height: 3rem;
-    /* border-radius: 50%;*/
-    line-height: 3rem;
-    text-align: center;
-    font-weight: 700;
-}
-
-.wp-pagenavi .current {
-    /* カレント数字 */
-    border: none;
-    background: #C92F59;
-    color: #fff;
-}
-
-.wp-pagenavi a.page:hover {
-    /* マウスオーバー */
-    background: #C92F59;
-    color: #fff;
-}
-
-.wp-pagenavi .first,
-.wp-pagenavi .extend {
-    /* ... */
-    margin-right: 1.5rem;
-}
-
-.wp-pagenavi .previouspostslink,
-.wp-pagenavi .nextpostslink {
-    /* 記号の削除 */
-    display: none;
-}
-/*********************************
 
 年齢確認モーダル
 
@@ -799,75 +741,6 @@ SP用ナビゲーション
     margin: 0 auto .8rem;
 }
 
-/*.shop-info ._line{
-    position: absolute;
-    background: #fff;
-    z-index: 4;
-}
-.shop-info ._line:nth-child(1){
-    top: -1px;
-    right: 0;
-    height: 2px;
-    width: 100%;
-    animation: border_draw1 2.5s linear infinite;
-}
-.shop-info ._line:nth-child(2){
-    top: 0;
-    right: -1px;
-    width: 2px;
-    height: 100%;
-    animation: border_draw2 2.5s linear 2.5s infinite;
-}
-.shop-info ._line:nth-child(3){
-    bottom: -1px;
-    right: 0;
-    height: 2px;
-    width: 100%;
-    animation: border_draw3 2.5s linear 5s infinite;
-}
-.shop-info ._line:nth-child(4){
-    bottom: 0;
-    left: -1px;
-    width: 2px;
-    height: 100%;
-    animation: border_draw4 2.5s linear 7.5s infinite;
-}*/
-/*@keyframes border_draw1 {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-@keyframes border_draw2 {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
-}
-@keyframes border_draw3 {
-  0% {
-    transform: translateX(+100%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes border_draw4 {
-  0% {
-    transform: translateY(+100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}*/
 /*スクロールダウン全体の場所*/
 .scrolldown {
     /*描画位置※位置は適宜調整してください*/
@@ -964,16 +837,6 @@ SP用ナビゲーション
     filter: contrast(1.1);
 }
 
-/*.slider-item::before {
-  content: "";
-  z-index: 2;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
-}*/
 .slider-item img {
     width: 100%;
     /*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
@@ -1198,39 +1061,6 @@ SP用ナビゲーション
     }
 }
 
-.yureru-s {
-    animation: yureru-s 2s infinite;
-}
-
-@keyframes yureru-s {
-    0% {
-        transform: translate(2px, 0px);
-    }
-
-    5% {
-        transform: translate(-2px, 0px);
-    }
-
-    10% {
-        transform: translate(2px, 0px);
-    }
-
-    15% {
-        transform: translate(-2px, 0px);
-    }
-
-    20% {
-        transform: translate(2px, 0px);
-    }
-
-    25% {
-        transform: translate(-2px, 0px);
-    }
-
-    30% {
-        transform: translate(0px, 0px);
-    }
-}
 
 /**************************************
 見出し
@@ -1340,18 +1170,6 @@ NEW FACE
 .mgt_30 {
     margin-top: 3rem;
 }
-/**
-.article-wrap {
-    /*width: 100%;/*スマホの2ページ目*/
-    width: 90%;
-    position: relative;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    opacity: 0;
-}*/
 .article-wrap {
     width: 90%;
     position: relative;
@@ -1376,23 +1194,6 @@ NEW FACE
     width: 100%;
     overflow: hidden;
 }
-
-/*モデル一覧ページの幅を調整する*/
-/*
-.special-item-class{
-    width: 100%!important;
-}
-.normal-item-class{
-    width: 49%!important;
-}
-*/
-/*ここまで*/
-
-/* モバイル用（767px以下）: 2列レイアウト
-.model-item {
-    width: 49%!important;
-}
-*/
 /* 修正前 */
 .model-item {
     width: 50%!important;
@@ -1512,7 +1313,7 @@ NEW FACE
 
 .article .box {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -2235,19 +2036,6 @@ NEWS
 .pd_adj {
     padding: 3rem 0 !important;
 }
-
-/* .news_wrap .news_box .news_list>li::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 1rem;
-    background: url("../images/arrow.png") 100% 100% no-repeat;
-    background-size: contain;
-} */
-
 .news_wrap .news_box .news_list li:last-child {
     border-bottom: 1px solid #b1b1b1;
 }
@@ -3990,7 +3778,7 @@ input::placeholder {
     position: relative;
     background: #000;
     background-size: cover;
-    padding: 3rem 1.7rem 1rem;
+    padding: 3rem 1rem 1rem;
 }
 
 .model .wrapper .articlePanel .article-wrap {
@@ -4013,7 +3801,7 @@ input::placeholder {
     position: relative;
     background: #000;
     background-size: cover;
-    padding: 3rem 1.7rem 1rem;
+    padding: 3rem 1rem 1rem;
 }
 
 .width_100 {
@@ -4719,15 +4507,6 @@ input::placeholder {
         padding: .5rem 1rem;
         font-size: 1.6rem;
     }
-    /*モデル一覧ページの幅を調整する*/
-    /*
-    .special-item-class{
-        width: 33.3%!important;
-    }
-    .normal-item-class{
-        width: 33.3%!important;
-    }
-    */
     .model-item {
         width: 33.3%!important;
     }
@@ -5002,10 +4781,6 @@ input::placeholder {
         overflow: hidden;
         height: 100%;
     }
-
-    /*  .kv_main .kv_wrap img {
-        transform: translateY(-8%);
-    } */
 
     .kv_main .kv_wrap .kv_title {
         width: 35%;
@@ -5719,11 +5494,333 @@ NEWS PAGE
     display: block !important;
     width: 100% !important;
     font-size: 0; /* インライン要素の隙間を消す */
+    height:100%!important;
   }
   /* Muuriのスタイルを完全に無効化 */
   .muuri, .muuri-item, .muuri-item-shown {
     position: relative !important;
     transform: none !important;
-    
   }
+}
+@media screen and (max-width: 767px) {
+    /* モバイル用（767px以下）: 2列レイアウト */
+    .model-item {
+      width: 48%!important; /* 49%から48%に変更して余白を確保 */
+      margin: 0 1% 2% 1%; /* 上下左右の余白を追加 */
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+      float: left;
+    }
+    
+    .article-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      height: auto !important;
+    }
+    
+    /* Muuriのスタイルを完全に無効化 */
+    .muuri, .muuri-item, .muuri-item-shown {
+      position: relative !important;
+      transform: none !important;
+    }
+  }
+  
+  @media only screen and (min-width: 767px) {
+    /* PC用（767px以上）: 3列レイアウト */
+    .model-item {
+      width: calc(33.3333% - 10px) !important; /* マージンを考慮した計算 */
+      box-sizing: border-box !important;
+      margin: 0 5px 10px !important;
+    }
+  }
+
+  /* public/assets/css/style.css に追加 */
+.model_link .intro {
+    height: 5em!important; /* 固定高さを設定 */
+    overflow: hidden!important;
+    /* WebKit系ブラウザ用の行数制限 */
+    display: -webkit-box!important;
+    -webkit-line-clamp: 3!important;
+    -webkit-box-orient: vertical!important;
+    /* 非WebKit系ブラウザ用のフォールバック */
+    display: block!important;
+    max-height: 5em!important; /* 行の高さに基づいて調整 */
+    position: relative!important;
+    margin: 1rem 0!important;
+  }
+
+  @media screen and (max-width: 767px) {
+    /* モバイル用の2列レイアウト */
+    .model-item {
+      width: 48% !important; /* 幅を48%に設定 */
+      margin: 0 1% 10px 1% !important; /* 余白を調整 */
+      float: left !important; /* 左フロートで横並びに */
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+    }
+    
+    /* 親要素のクリアフィックス */
+    .article-wrap {
+      display: block !important;
+      width: 100% !important;
+      overflow: hidden !important;
+    }
+    
+    /* Muuriのスタイルを完全に無効化 */
+    .muuri, .muuri-item, .muuri-item-shown {
+      position: relative !important;
+      transform: none !important;
+    }
+    
+    /* 画像サイズの調整 */
+    .model-item .photo {
+      width: 100% !important;
+      height: auto !important;
+    }
+    
+    /* コンテンツエリアのレイアウト調整 */
+    #todays_schedule .article-wrap {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    /* モバイル用の2列レイアウト - フロートベース */
+    .model-item {
+      width: 48% !important; /* 48%に設定してマージンを確保 */
+      margin: 0 1% 15px 1% !important; /* 上下左右のマージン調整 */
+      float: left !important; /* 左フロート */
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+      clear: none !important; /* 明示的にclearを無効化 */
+    }
+    
+    /* 2つおきに左マージンをクリア */
+    .model-item:nth-child(2n+1) {
+      clear: left !important; /* 奇数番目の要素で改行 */
+    }
+    
+    /* 親要素はoverflow: hiddenでクリアフィックス */
+    .article-wrap {
+      overflow: hidden !important;
+      width: 98% !important;
+      margin: 0 auto !important;
+    }
+    #article-slider{
+        width:90%!important;
+    }
+    
+    /* 画像サイズの統一 */
+    .model-item .photo {
+      width: 100% !important;
+      height: auto !important;
+    }
+    
+    /* intro部分のサイズ統一 */
+    .model_link .intro {
+      min-height: 4em !important; /* 最小高さを指定 */
+      overflow: hidden !important;
+      margin: 0.5rem 0 !important;
+    }
+  }
+/* PC用スタイル（768px以上） */
+@media only screen and (min-width: 768px) {
+    /* モデルアイテムのレイアウト */
+    .model-item {
+      width: calc(33.3333% - 10px) !important;
+      margin: 0 5px 20px !important;
+      float: left !important;
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+    }
+    
+    /* PCでの3列表示のためのクリア */
+    .model-item:nth-child(3n+1) {
+      clear: left !important;
+    }
+    
+    /* 2列表示のクリアルールを上書き */
+    .model-item:nth-child(2n+1):not(:nth-child(3n+1)) {
+      clear: none !important;
+    }
+    
+    /* モデルアイテムを囲むコンテナのスタイル */
+    .article-wrap {
+      display: block !important;
+      width: 100% !important;
+      overflow: hidden !important;
+      font-size: 0; /* インライン要素の隙間を消す */
+    }
+    
+    /* Muuri関連のスタイルを強制上書き */
+    .muuri-item, .muuri-item-shown {
+      position: relative !important;
+      transform: none !important;
+      left: auto !important;
+      top: auto !important;
+    }
+    
+    /* PCでの親コンテナの3列表示用スタイル */
+    .article-wrap.grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: flex-start !important;
+    }
+  }
+  
+/* 年齢認証モーダル - バナー統合版 */
+
+/* モーダル全体の調整 */
+.modal-container .enhanced-modal {
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.5s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ロゴ背景を元画像に変更 */
+.modal-container .enhanced-logo {
+    background-image: url("../images/model-bg.webp");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.modal-container .enhanced-logo::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, rgba(201, 47, 89, 0.8) 0%, rgba(142, 31, 37, 0.8) 100%);
+    z-index: 1;
+}
+
+.modal-container .enhanced-logo img {
+    position: relative;
+    z-index: 2;
+}
+
+/* バナーセクション */
+.banner-section {
+    background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
+    padding: 25px 30px 30px;
+    border-top: 1px solid #eee;
+}
+
+.banner-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.banner-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.banner-container:hover {
+    transform: translateY(-2px);
+}
+
+/* バナーテーブル */
+.banner-table {
+    width: 100%;
+    max-width: 468px;
+    margin: 0 auto;
+    border: 2px solid #8e1f25;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0;
+}
+
+.banner-table img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.banner-table a:hover img {
+    opacity: 0.9;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .modal-container {
+        padding: 5px;
+    }
+
+    .modal-container .enhanced-modal {
+        width: 100%;
+        max-width: 95vw;
+        border-radius: 15px;
+    }
+
+    .banner-section {
+        padding: 20px 10px 25px;
+    }
+
+    .banner-title {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* モバイルでバナーを大きく見やすく */
+    .banner-table {
+        transform: scale(1.1);
+        border-width: 1px;
+    }
+
+    .banner-container {
+        padding: 5px;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-container .enhanced-modal {
+        max-width: 98vw;
+        border-radius: 10px;
+    }
+
+    .banner-section {
+        padding: 15px 5px 20px;
+    }
+
+    .banner-title {
+        font-size: 14px;
+    }
+
+    .banner-table {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 380px) {
+    .banner-table {
+        transform: scale(0.95);
+    }
+    
+    .banner-section {
+        padding: 10px 2px 15px;
+    }
 }

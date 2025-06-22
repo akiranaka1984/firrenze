@@ -329,77 +329,96 @@
     </div>
 
     <script type="text/javascript">
-    $(document).ready(function(){
-         $(document).on('click','.undetermined_hours', function(){
-            let mthis = $(this)
-            updateBulkRecord(mthis)
-         })
-         
-         $(document).on('click','.hidden_hours', function(){
-            let mthis = $(this)
-            updateBulkRecord(mthis)
+        $(document).ready(function(){
+             $(document).on('click','.undetermined_hours', function(){
+                let mthis = $(this)
+                updateBulkRecord(mthis)
+             })
+             
+             $(document).on('click','.hidden_hours', function(){
+                let mthis = $(this)
+                updateBulkRecord(mthis)
+            })
+            $(document).on('click','.without_end_time_display', function(){
+                let mthis = $(this)
+                updateBulkRecord(mthis)
+            })
+            $(document).on('change','.start_date', function(){
+                let mthis = $(this)
+                updateBulkRecord(mthis)
+            })
+            $(document).on('change','.end_date', function(){
+                let mthis = $(this)
+                updateBulkRecord(mthis)
+            })
+            $(document).on('click', '.reset_btn', function() {
+                // クリックされたボタンの行全体を対象とする
+                let container = $(this).closest('.trow');
+                
+                // 日付とコンパニオンIDを取得
+                let date = container.attr('data-date');
+                let companion = container.attr('data-companion');
+                
+                // チェックボックスを未チェックに戻す
+                container.find('input[type="checkbox"]').prop('checked', false);
+                
+                // セレクトボックスの値を初期状態に戻す
+                container.find('select').val('');
+                
+                // 確認ダイアログを表示（オプション）
+                if (confirm('この出勤情報を削除しますか？')) {
+                    // レコードを完全に削除するAjaxリクエスト
+                    $.ajax({
+                        type: 'POST',
+                        url: `{{ route('admin.attendance.bulk.delete') }}`,
+                        headers: {"Content-Type": "application/json"},
+                        data: JSON.stringify({
+                            "_token": "{{ csrf_token() }}",
+                            date: date,    
+                            companion: companion
+                        }),
+                        success: function (response) {
+                            if (response.status === 1) {
+                                simpleMessage('success', response.message);
+                            } else {
+                                simpleMessage('error', '削除に失敗しました');
+                            }
+                        },
+                        error: function() {
+                            simpleMessage('error', 'サーバーエラーが発生しました');
+                        }
+                    });
+                }
+            });
         })
-
-        $(document).on('click','.without_end_time_display', function(){
-            let mthis = $(this)
-            updateBulkRecord(mthis)
-        })
-
-        $(document).on('change','.start_date', function(){
-            let mthis = $(this)
-            updateBulkRecord(mthis)
-        })
-
-        $(document).on('change','.end_date', function(){
-            let mthis = $(this)
-            updateBulkRecord(mthis)
-        })
-
-        // ここにリセットボタンのコードを追加
-        $(document).on('click', '.reset_btn', function() {
-            // クリックされたボタンの行全体を対象とする
-            let container = $(this).closest('.trow');
-
-            // チェックボックスを未チェックに戻す
-            container.find('input[type="checkbox"]').prop('checked', false);
-
-            // セレクトボックスの値を初期状態に戻す
-            container.find('select').val('');
-        });
-    })
-
-    function updateBulkRecord(mthis)
-    {
-        let date = mthis.closest('.trow').attr('data-date')
-        let companion = mthis.closest('.trow').attr('data-companion')
-        let undetermined_hours =   mthis.closest('.trow').find('.undetermined_hours').prop("checked")
-        let hidden_hours =   mthis.closest('.trow').find('.hidden_hours').prop("checked")
-        let without_end_time_display =   mthis.closest('.trow').find('.without_end_time_display').prop("checked")
-        let start_date =   mthis.closest('.trow').find('.start_date').val()
-        let end_date =   mthis.closest('.trow').find('.end_date').val()
-
-        $.ajax({
-            type: 'POST',
-            url: `{{ route('admin.attendance.bulk.save') }}`,
-            headers: {"Content-Type": "application/json"},
-            data: JSON.stringify({
-                "_token": "{{ csrf_token() }}",
-                date: date,    
-                companion: companion,
-                undetermined_hours: undetermined_hours,
-                hidden_hours: hidden_hours,
-                without_end_time_display: without_end_time_display,
-                start_date: start_date,
-                end_date: end_date
-            }),
-            success: function (response) {
-                simpleMessage('success',`{{__('Save Changes')}}`);
-            }
-        })
-
-    }
-
-
+        function updateBulkRecord(mthis)
+        {
+            let date = mthis.closest('.trow').attr('data-date')
+            let companion = mthis.closest('.trow').attr('data-companion')
+            let undetermined_hours =   mthis.closest('.trow').find('.undetermined_hours').prop("checked")
+            let hidden_hours =   mthis.closest('.trow').find('.hidden_hours').prop("checked")
+            let without_end_time_display =   mthis.closest('.trow').find('.without_end_time_display').prop("checked")
+            let start_date =   mthis.closest('.trow').find('.start_date').val()
+            let end_date =   mthis.closest('.trow').find('.end_date').val()
+            $.ajax({
+                type: 'POST',
+                url: `{{ route('admin.attendance.bulk.save') }}`,
+                headers: {"Content-Type": "application/json"},
+                data: JSON.stringify({
+                    "_token": "{{ csrf_token() }}",
+                    date: date,    
+                    companion: companion,
+                    undetermined_hours: undetermined_hours,
+                    hidden_hours: hidden_hours,
+                    without_end_time_display: without_end_time_display,
+                    start_date: start_date,
+                    end_date: end_date
+                }),
+                success: function (response) {
+                    simpleMessage('success',`{{__('Save Changes')}}`);
+                }
+            })
+        }
     </script>
 
 @endsection

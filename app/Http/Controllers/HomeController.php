@@ -249,15 +249,13 @@ class HomeController extends Controller
     // データをソートして取得
     //$companions = $companions->orderBy('updated_at', 'desc')->orderBy('id', 'desc')->get();
     // データをソートして取得
+    // データをソートして取得
     $companions = $companions->orderBy('position', 'asc')->get();
-
-    
     if ($isMobile) {
     // リクエストに "page" パラメータがあり、1でなければリダイレクトしてページ番号をリセット
         if (request()->has('page') && request()->get('page') != 1) {
             return redirect(url()->current());
         }
-    
         // モバイル: 全てのデータを1ページで表示
         $paginatedCompanions = new LengthAwarePaginator(
             $companions,
