@@ -416,107 +416,174 @@ class HomeController extends Controller
         return view('page.recruit', compact('header','footer', 'recruit', 'month', 'day'));
     }
 
-    public function recruit_save(Request $request)
-    {
-        Log::info('Recruit Save: Start processing', $request->all());
-    
+public function recruit_save(Request $request)
+{
+    Log::info('Recruit Save: Start processing', $request->all());
+
+    // 空文字を null に変換（ファイル以外）
+    $data = $request->all();
+    foreach ($data as $key => $value) {
+        if ($key !== 'photo' && $value === '') {
+            $data[$key] = null;
+        }
+    }
+    $request->merge($data);
+
+    // バリデーション修正：必須項目を限定
+    try {
         $request->validate([
             'name' => 'required|string',
             'mail' => 'required|email',
             'mail2' => 'required|same:mail',
             'tel' => 'required|string',
-            'interview_month' => 'required|integer',
-            'interview_date' => 'required|integer',
-            'interview_hour' => 'required|integer',
-            'interview_minute' => 'required|integer',
+            // 面接希望日時はオプショナルに変更
+            'interview_month' => 'nullable|integer|min:1|max:12',
+            'interview_date' => 'nullable|integer|min:1|max:31',
+            'interview_hour' => 'nullable|integer|min:1|max:23',
+            // その他の項目もオプショナルに
+            'age' => 'nullable|integer|min:18',
+            'height' => 'nullable|numeric|min:100|max:250',
+            'weight' => 'nullable|numeric|min:30|max:200',
+            'bust' => 'nullable|string|in:A,B,C,D,E,F,G,H,I,J,K',
+            'tattoo' => 'nullable|in:0,1',
+            'require' => 'nullable|string',
+            'interview_minute' => 'nullable|integer|min:0|max:59',
+            'inquiry' => 'nullable|string|max:1000',
+            'photo' => 'nullable|image|max:10240|mimes:jpeg,png,jpg,gif',
+        ], [
+            'name.required' => 'お名前を入力してください',
+            'mail.required' => 'メールアドレスを入力してください',
+            'mail.email' => '正しいメールアドレスを入力してください',
+            'mail2.required' => 'メールアドレス（確認用）を入力してください',
+            'mail2.same' => 'メールアドレスが一致しません',
+            'tel.required' => 'お電話番号を入力してください',
+            'age.integer' => '年齢は数字で入力してください',
+            'age.min' => '年齢は18歳以上で入力してください',
+            'height.numeric' => '身長は数字で入力してください',
+            'weight.numeric' => '体重は数字で入力してください',
+            'photo.image' => '画像ファイルを選択してください',
+            'photo.max' => '画像ファイルは10MB以下にしてください',
+            'photo.mimes' => '画像ファイルはjpeg,png,jpg,gif形式のみ対応しています',
         ]);
-    
-        Log::info('Validation passed');
-    
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        Log::error('Validation failed', ['errors' => $e->errors()]);
+        throw $e; // Laravelのデフォルトの処理に任せる
+    }
+
+    Log::info('Validation passed');
+
+    $imageName = null;
+    if ($request->hasFile('photo')) {
         $imageName = $this->handleImageUpload($request->file('photo'));
-    
+        
         if ($imageName) {
             Log::info('Photo uploaded successfully', ['imageName' => $imageName]);
         } else {
             Log::info('No photo uploaded or upload failed');
         }
-    
+    }
+
+    // 面接日時の処理（分を00固定に）
+    $interviewDate = null;
+    if ($request->interview_month && $request->interview_date && $request->interview_hour) {
         $interviewDate = sprintf(
-            '%04d-%02d-%02d %02d:%02d:00',
+            '%04d-%02d-%02d %02d:00:00',
             now()->year,
             $request->interview_month,
             $request->interview_date,
-            $request->interview_hour,
-            $request->interview_minute
+            $request->interview_hour
         );
-    
-        Log::info('Interview date formatted', ['interviewDate' => $interviewDate]);
-    
-        try {
-            Log::info('Saving interview data...', [
+    }
+
+    Log::info('Interview date formatted', ['interviewDate' => $interviewDate]);
+
+    try {
+        Log::info('Saving interview data...', [
+            'photo' => $imageName,
+            'data' => [
+                'name' => $request->name,
+                'tel' => $request->tel,
                 'photo' => $imageName,
-                'data' => [
-                    'name' => $request->name,
-                    'tel' => $request->tel,
-                    'photo' => $imageName,
-                    'interview_date' => $interviewDate,
-                ],
-            ]);
-    
-            $interview = Interview::updateOrCreate(
-                ['mail' => $request->mail],
-                [
-                    'name' => $request->name,
-                    'tel' => $request->tel,
-                    'line_id' => $request->lineid,
-                    'age' => $request->age,
-                    'height' => $request->height,
-                    'weight' => $request->weight,
-                    'bust' => $request->bust,
-                    'tattoo' => $request->tattoo ?? null,
-                    'photo' => $imageName,
-                    'interview_date' => $interviewDate,
-                    'inquiry' => $request->require,
-                    'other_message' => $request->inquiry,
-                    'appealing_points' => '',
-                ]
-            );
-    
-            Log::info('Interview saved successfully', ['interview' => $interview]);
-        } catch (\Exception $e) {
-            Log::error('Error saving interview', ['error' => $e->getMessage()]);
-            return redirect()->back()->with('error', __('An error occurred while saving the interview.'));
-        }
-    
-        Log::info('Redirecting to /recruit');
-        return redirect('/recruit')->with('success', __('Save Changes'));
-    }
-    
-    /**
-     * 画像アップロード処理
-     *
-     * @param UploadedFile|null $file
-     * @return string|null
-     */
-    private function handleImageUpload($file)
-    {
-        if (!$file) {
-            Log::info('No file provided for upload');
-            return null;
-        }
-    
-        $fileName = uniqid() . '.' . $file->getClientOriginalExtension(); // ユニークなファイル名生成
-    
+                'interview_date' => $interviewDate,
+            ],
+        ]);
+
+        $interview = Interview::updateOrCreate(
+            ['mail' => $request->mail],
+            [
+                'name' => $request->name,
+                'tel' => $request->tel,
+                'line_id' => $request->lineid,
+                'age' => $request->age,
+                'height' => $request->height,
+                'weight' => $request->weight,
+                'bust' => $request->bust,
+                'tattoo' => $request->tattoo ?? null,
+                'photo' => $imageName,
+                'interview_date' => $interviewDate,
+                'inquiry' => $request->require ?? '求人応募',  // デフォルト値を設定
+                'other_message' => $request->inquiry ?? '',
+                'appealing_points' => '',
+            ]
+        );
+
+        Log::info('Interview saved successfully', ['interview' => $interview]);
+        
+        // ジョブのディスパッチ
         try {
-            Storage::disk('public')->put('photos/interview/' . $fileName, file_get_contents($file));
-            Log::info('File successfully uploaded', ['path' => 'photos/interview/' . $fileName]);
+            if (class_exists('App\Jobs\RecruitmentToApplicantJob')) {
+                dispatch(new \App\Jobs\RecruitmentToApplicantJob(['interview' => $interview]));
+            }
+            if (class_exists('App\Jobs\RecruitmentToStoreJob')) {
+                dispatch(new \App\Jobs\RecruitmentToStoreJob(['interview' => $interview]));
+            }
         } catch (\Exception $e) {
-            Log::error('File upload failed', ['error' => $e->getMessage()]);
-            return null;
+            Log::warning('Job dispatch failed', ['error' => $e->getMessage()]);
+            // ジョブの失敗は無視して続行
         }
-    
-        return $fileName;
+        
+        // 成功時のレスポンス
+        return redirect('/recruit')->with('success', '送信が完了しました');
+        
+    } catch (\Exception $e) {
+        Log::error('Error saving interview', ['error' => $e->getMessage()]);
+        
+        // エラー時のレスポンス
+        return redirect()->back()->with('error', '送信できませんでした、もう一度ご入力ください')->withInput();
     }
+}
+
+/**
+ * 画像アップロード処理
+ *
+ * @param \Illuminate\Http\UploadedFile|null $file
+ * @return string|null
+ */
+private function handleImageUpload($file)
+{
+    if (!$file) {
+        Log::info('No file provided for upload');
+        return null;
+    }
+
+    $fileName = uniqid() . '.' . $file->getClientOriginalExtension(); // ユニークなファイル名生成
+
+    try {
+        // ディレクトリが存在しない場合は作成
+        $directory = 'photos/interview';
+        if (!Storage::disk('public')->exists($directory)) {
+            Storage::disk('public')->makeDirectory($directory);
+        }
+        
+        Storage::disk('public')->put($directory . '/' . $fileName, file_get_contents($file));
+        Log::info('File successfully uploaded', ['path' => $directory . '/' . $fileName]);
+    } catch (\Exception $e) {
+        Log::error('File upload failed', ['error' => $e->getMessage()]);
+        return null;
+    }
+
+    return $fileName;
+}
     
     public function reservation(Request $request)
     {

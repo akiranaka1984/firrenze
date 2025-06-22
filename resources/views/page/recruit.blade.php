@@ -37,7 +37,7 @@
                     <h3 class="head mgb_30 mgt_30 ttl_rev">応募フォーム</h3>
                     <div class="recruitment">
                        
-                        <form action="{{ route('page.recruit.save') }}" class="form" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('page.recruit.save') }}" class="form" method="POST" enctype="multipart/form-data" id="recruitForm">
                             @csrf
                             
                             @if(session('success'))
@@ -50,6 +50,12 @@
                                     {{ session('error') }}
                                 </div>
                             @endif
+                            
+                            <!-- デバッグ用 -->
+                            <div style="background: yellow; padding: 10px; margin: 10px 0;">
+                                セッション成功: {{ session('success') ?? 'なし' }}<br>
+                                セッションエラー: {{ session('error') ?? 'なし' }}
+                            </div>
 
                             <div id="mw_wp_form_mw-wp-form-59" class="mw_wp_form mw_wp_form_input  ">
                                 <dl>
@@ -84,31 +90,31 @@
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt>ご年齢<span>必須</span></dt>
+                                    <dt>ご年齢</dt>
                                     <dd class="age">
-                                        <input type="text" name="age" id="age" class="wide _age" size="60" value="" placeholder="24" required>
+                                        <input type="text" name="age" id="age" class="wide _age" size="60" value="" placeholder="24">
                                         <span>歳</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>身長</dt>
                                     <dd class="height">
-                                        <input type="text" name="height" id="height" class="wide _height" size="60" value="" placeholder="160">
+                                        <input type="text" name="height" id="hight" class="wide _height" size="60" value="" placeholder="160">
                                         <span>cm</span>
                                     </dd>
                                 </dl>
                                 <dl>
                                     <dt>体重</dt>
                                     <dd class="weight">
-                                        <input type="text" name="weight" id="weight" class="wide _weight" size="60" value="" placeholder="50">
+                                        <input type="text" name="weight" id="weight" class="wide _weight" size="60" value="" placeholder="45">
                                         <span>kg</span>
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt>バストサイズ</dt>
+                                    <dt>■バストサイズ</dt>
                                     <dd class="bust">
-                                        <select class="wide _bust" name="bust">
-                                            <option value="" selected disabled>--</option>
+                                        <select name="bust" id="bust" class="wide _bust" data-prompt-position="topLeft">
+                                            <option value="" selected="selected"> 選択してください </option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="C">C</option>
@@ -143,98 +149,44 @@
                                 <dl>
                                     <dt>面接希望日</dt>
                                     <dd class="preferred">
-                                        <select name="interview_month" class="wide" data-prompt-position="topLeft">
+                                        <select name="interview_month" class="wide" data-prompt-position="topLeft" style="width: 30%;">
                                             <option value="" disabled>--</option>
-                                            <option value="1" {{ ($month == 1) ? 'selected' : '' }} >1</option>
-                                            <option value="2" {{ ($month == 2) ? 'selected' : '' }} >2</option>
-                                            <option value="3" {{ ($month == 3) ? 'selected' : '' }} >3</option>
-                                            <option value="4" {{ ($month == 4) ? 'selected' : '' }} >4</option>
-                                            <option value="5" {{ ($month == 5) ? 'selected' : '' }} >5</option>
-                                            <option value="6" {{ ($month == 6) ? 'selected' : '' }} >6</option>
-                                            <option value="7" {{ ($month == 7) ? 'selected' : '' }} >7</option>
-                                            <option value="8" {{ ($month == 8) ? 'selected' : '' }} >8</option>
-                                            <option value="9" {{ ($month == 9) ? 'selected' : '' }} >9</option>
-                                            <option value="10" {{ ($month == 10) ? 'selected' : '' }} >10</option>
-                                            <option value="11" {{ ($month == 11) ? 'selected' : '' }} >11</option>
-                                            <option value="12" {{ ($month == 12) ? 'selected' : '' }} >12</option>
+                                            <option value="1" {{ ($month == 1) ? 'selected' : '' }}>1</option>
+                                            <option value="2" {{ ($month == 2) ? 'selected' : '' }}>2</option>
+                                            <option value="3" {{ ($month == 3) ? 'selected' : '' }}>3</option>
+                                            <option value="4" {{ ($month == 4) ? 'selected' : '' }}>4</option>
+                                            <option value="5" {{ ($month == 5) ? 'selected' : '' }}>5</option>
+                                            <option value="6" {{ ($month == 6) ? 'selected' : '' }}>6</option>
+                                            <option value="7" {{ ($month == 7) ? 'selected' : '' }}>7</option>
+                                            <option value="8" {{ ($month == 8) ? 'selected' : '' }}>8</option>
+                                            <option value="9" {{ ($month == 9) ? 'selected' : '' }}>9</option>
+                                            <option value="10" {{ ($month == 10) ? 'selected' : '' }}>10</option>
+                                            <option value="11" {{ ($month == 11) ? 'selected' : '' }}>11</option>
+                                            <option value="12" {{ ($month == 12) ? 'selected' : '' }}>12</option>
                                         </select>月&nbsp;
-                                        <select name="interview_date" class="wide" data-prompt-position="topLeft">
+                                        <select name="interview_date" class="wide" data-prompt-position="topLeft" style="width: 30%;">
                                             <option value="" disabled>--</option>
-                                            <option value="1" {{ ($day == 1) ? 'selected' : '' }} >1</option>
-                                            <option value="2" {{ ($day == 2) ? 'selected' : '' }} >2</option>
-                                            <option value="3" {{ ($day == 3) ? 'selected' : '' }} >3</option>
-                                            <option value="4" {{ ($day == 4) ? 'selected' : '' }} >4</option>
-                                            <option value="5" {{ ($day == 5) ? 'selected' : '' }} >5</option>
-                                            <option value="6" {{ ($day == 6) ? 'selected' : '' }} >6</option>
-                                            <option value="7" {{ ($day == 7) ? 'selected' : '' }} >7</option>
-                                            <option value="8" {{ ($day == 8) ? 'selected' : '' }} >8</option>
-                                            <option value="9" {{ ($day == 9) ? 'selected' : '' }} >9</option>
-                                            <option value="10" {{ ($day == 10) ? 'selected' : '' }} >10</option>
-                                            <option value="11" {{ ($day == 11) ? 'selected' : '' }} >11</option>
-                                            <option value="12" {{ ($day == 12) ? 'selected' : '' }} >12</option>
-                                            <option value="13" {{ ($day == 13) ? 'selected' : '' }} >13</option>
-                                            <option value="14" {{ ($day == 14) ? 'selected' : '' }} >14</option>
-                                            <option value="15" {{ ($day == 15) ? 'selected' : '' }} >15</option>
-                                            <option value="16" {{ ($day == 16) ? 'selected' : '' }} >16</option>
-                                            <option value="17" {{ ($day == 17) ? 'selected' : '' }} >17</option>
-                                            <option value="18" {{ ($day == 18) ? 'selected' : '' }} >18</option>
-                                            <option value="19" {{ ($day == 19) ? 'selected' : '' }} >19</option>
-                                            <option value="20" {{ ($day == 20) ? 'selected' : '' }} >20</option>
-                                            <option value="21" {{ ($day == 21) ? 'selected' : '' }} >21</option>
-                                            <option value="22" {{ ($day == 22) ? 'selected' : '' }} >22</option>
-                                            <option value="23" {{ ($day == 23) ? 'selected' : '' }} >23</option>
-                                            <option value="24" {{ ($day == 24) ? 'selected' : '' }} >24</option>
-                                            <option value="25" {{ ($day == 25) ? 'selected' : '' }} >25</option>
-                                            <option value="26" {{ ($day == 26) ? 'selected' : '' }} >26</option>
-                                            <option value="27" {{ ($day == 27) ? 'selected' : '' }} >27</option>
-                                            <option value="28" {{ ($day == 28) ? 'selected' : '' }} >28</option>
-                                            <option value="29" {{ ($day == 29) ? 'selected' : '' }} >29</option>
-                                            <option value="30" {{ ($day == 30) ? 'selected' : '' }} >30</option>
-                                            <option value="31" {{ ($day == 31) ? 'selected' : '' }} >31</option>
+                                            @for ($i = 1; $i <= 31; $i++)
+                                                <option value="{{ $i }}" {{ ($day == $i) ? 'selected' : '' }}>{{ $i }}</option>
+                                            @endfor
                                         </select>日&nbsp;
-                                        <select name="interview_hour" class="wide" data-prompt-position="topLeft">
-                                            <option value="" selected disabled>--</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="13">13</option>
-                                            <option value="14">14</option>
-                                            <option value="15">15</option>
-                                            <option value="16">16</option>
-                                            <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                        </select>時&nbsp;
-                                        <select name="interview_minute" class="wide" data-prompt-position="topLeft">
-                                            <option value="" selected disabled>--</option>
-                                            <option value="00">00</option>
-                                            <option value="30">30</option>
-                                        </select>分
+                                        <select name="interview_hour" class="wide" data-prompt-position="topLeft" style="width: 30%;">
+                                            <option value="">時間を選択</option>
+                                            @for ($i = 1; $i <= 23; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>時
+                                        <input type="hidden" name="interview_minute" value="0">
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt>お問い合わせ内容<span>必須</span></dt>
+                                    <dt>お問い合わせ内容</dt>
                                     <dd class="height">
                                         <select class="wide _height" name="require">
-                                            <option value="" selected disabled>--</option>
-                                            <option value="求人応募">求人応募</option>
+                                            <option value="求人応募" selected>求人応募</option>
                                             <option value="お問い合わせ">お問い合わせ</option>
                                         </select>
                                     </dd>
-                                </dd>
                                 </dl>
                                 <dl>
                                     <dt>お問い合わせ内容</dt>
@@ -246,7 +198,7 @@
                                     <em>※確認画面は表示されませんので、送信前に内容のご確認をお願い致します。</em><br>
                                     ※ドメイン指定受信されているお客様は「info@club-firenze.net」からのメールを受信できるよう、設定の変更をお願い致します。
                                 </p>
-                                <button type="submit" class="recruit_btn">送信する</button>
+                                <button type="submit" class="recruit_btn" id="submitBtn">送信する</button>
                             </div>
                         </form>
                     </div>
@@ -255,5 +207,77 @@
             </div>
         </div>
     </section>
+
+    <!-- ポップアップモーダル -->
+    <div id="popupModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 30px; border-radius: 10px; text-align: center; min-width: 300px; max-width: 500px; max-height: 80vh; overflow-y: auto;">
+            <p id="popupMessage" style="font-size: 16px; margin-bottom: 20px; white-space: pre-line; text-align: left;"></p>
+            <button onclick="closePopup()" style="padding: 10px 30px; background-color: #C92F59; color: white; border: none; border-radius: 5px; cursor: pointer;">閉じる</button>
+        </div>
+    </div>
+
+    <script>
+    // ページ読み込み時にセッションメッセージをチェック
+    window.addEventListener('load', function() {
+        @if(session('success'))
+            showPopup('{{ session('success') }}');
+        @endif
+        
+        @if(session('error'))
+            showPopup('{{ session('error') }}');
+        @endif
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('recruitForm');
+        
+        // フォームのバリデーション（送信前チェック）
+        form.addEventListener('submit', function(e) {
+            // 必須項目のチェック
+            const requiredFields = {
+                'name': 'お名前',
+                'mail': 'メールアドレス',
+                'mail2': 'メールアドレス(確認用)',
+                'tel': 'お電話番号'
+            };
+            
+            let hasError = false;
+            let errorMessages = [];
+            
+            for (let fieldName in requiredFields) {
+                const field = form.elements[fieldName];
+                if (!field || !field.value.trim()) {
+                    hasError = true;
+                    errorMessages.push(requiredFields[fieldName] + 'を入力してください');
+                }
+            }
+            
+            // メールアドレスの一致チェック
+            if (form.elements['mail'].value !== form.elements['mail2'].value) {
+                hasError = true;
+                errorMessages.push('メールアドレスが一致しません');
+            }
+            
+            if (hasError) {
+                e.preventDefault();
+                showPopup(errorMessages.join('\n'));
+                return false;
+            }
+            
+            // 通常のフォーム送信を実行
+            return true;
+        });
+    });
+    
+    function showPopup(message) {
+        console.log('Showing popup:', message); // デバッグ用
+        document.getElementById('popupMessage').textContent = message;
+        document.getElementById('popupModal').style.display = 'block';
+    }
+    
+    function closePopup() {
+        document.getElementById('popupModal').style.display = 'none';
+    }
+    </script>
 
 @endsection
