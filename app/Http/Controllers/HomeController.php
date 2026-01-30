@@ -529,6 +529,13 @@ public function recruit_save(Request $request)
 
         Log::info('Interview saved successfully', ['interview' => $interview]);
         
+        // ★★★ ここに追加 ★★★
+        // メール送信（予約と同じ方式）
+        if (class_exists('\App\Mail\RecruitmentNotification')) {
+            \Illuminate\Support\Facades\Mail::to('info.clubfirenze2021@gmail.com')
+                ->send(new \App\Mail\RecruitmentNotification($interview));
+        }
+        
         // ジョブのディスパッチ
         try {
             if (class_exists('App\Jobs\RecruitmentToApplicantJob')) {

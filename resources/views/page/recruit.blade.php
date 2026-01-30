@@ -51,12 +51,6 @@
                                 </div>
                             @endif
                             
-                            <!-- デバッグ用 -->
-                            <div style="background: yellow; padding: 10px; margin: 10px 0;">
-                                セッション成功: {{ session('success') ?? 'なし' }}<br>
-                                セッションエラー: {{ session('error') ?? 'なし' }}
-                            </div>
-
                             <div id="mw_wp_form_mw-wp-form-59" class="mw_wp_form mw_wp_form_input  ">
                                 <dl>
                                     <dt>お名前<span>必須</span></dt>

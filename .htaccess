@@ -1,41 +1,54 @@
+# ===== VIPだけBasic認証（必要なら） =====
+<If "%{HTTP_HOST} == 'vip.club-firenze.net'">
+    AuthType Basic
+    AuthName "VIP Only"
+    AuthUserFile "/home/zytcmxev/.htpasswd_vip"
+    Require user vipuser
+</If>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # /s/ で始まる全てのURLを https://club-firenze.net にリダイレクト
-    RewriteRule ^s/(.*)$ https://club-firenze.net? [R=301,L]
+    # --- ここから「/s/〜」系の旧URLリダイレクト（ドメインは動的に現在のホストを使用） ---
 
-    # 既存のルール
+    # /s/以下をトップへ（クエリは捨てる）
+    RewriteRule ^s/(.*)$ https://%{HTTP_HOST}/? [R=301,L,QSD]
+
     RewriteCond %{QUERY_STRING} ^dsp=7$
-    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
+    RewriteRule ^s/newslist$ https://%{HTTP_HOST}/? [R=301,L,QSD]
 
     RewriteCond %{QUERY_STRING} ^lid=(991|912|934)$
-    RewriteRule ^s/profile$ https://club-firenze.net? [R=301,L]
+    RewriteRule ^s/profile$ https://%{HTTP_HOST}/? [R=301,L,QSD]
 
     RewriteCond %{QUERY_STRING} ^dsp=14$
-    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
-    RewriteCond %{QUERY_STRING} ^day=2$
-    RewriteRule ^schedule$ https://club-firenze.net? [R=301,L]
-    RewriteCond %{QUERY_STRING} ^lid=119$
-    RewriteRule ^s/profile$ https://club-firenze.net? [R=301,L]
+    RewriteRule ^s/newslist$ https://%{HTTP_HOST}/? [R=301,L,QSD]
 
-    RewriteRule ^s/recruit$ /public/recruit [R=301,L]
-    RewriteRule ^s/reservation$ /public/reservation [R=301,L]
-    RewriteRule ^s/price$ /price [R=301,L]
-    RewriteRule ^entry$ https://club-firenze.net/recruit [R=301,L]
-    RewriteRule ^girl$ https://club-firenze.net/enrollment_table [R=301,L]
+    RewriteCond %{QUERY_STRING} ^day=2$
+    RewriteRule ^schedule$ https://%{HTTP_HOST}/? [R=301,L,QSD]
+
+    RewriteCond %{QUERY_STRING} ^lid=119$
+    RewriteRule ^s/profile$ https://%{HTTP_HOST}/? [R=301,L,QSD]
+
+    # 目的のページへ（現在ホストのまま）
+    RewriteRule ^s/recruit$     https://%{HTTP_HOST}/recruit          [R=301,L]
+    RewriteRule ^s/reservation$ https://%{HTTP_HOST}/reservation      [R=301,L]
+    RewriteRule ^s/price$       https://%{HTTP_HOST}/price            [R=301,L]
+    RewriteRule ^entry$         https://%{HTTP_HOST}/recruit          [R=301,L]
+    RewriteRule ^girl$          https://%{HTTP_HOST}/enrollment_table [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^lid=1023$
-    RewriteRule ^profile$ /page/details/2963? [R=301,L]
+    RewriteRule ^profile$ /page/details/2963? [R=301,L]   # 同一ホスト内でリダイレクト。? でクエリ消去
 
-    RewriteRule ^pc$ https://club-firenze.net [R=301,L]
-    RewriteRule ^s/schedule$ https://club-firenze.net/attendance_sheet [R=301,L]
-    RewriteRule ^s/contact$ https://club-firenze.net [R=301,L]
-    RewriteRule ^s/concept$ https://club-firenze.net/concept [R=301,L]
-    RewriteRule ^s/newface$ https://club-firenze.net [R=301,L]
+    RewriteRule ^pc$          https://%{HTTP_HOST}/                    [R=301,L]
+    RewriteRule ^s/schedule$  https://%{HTTP_HOST}/attendance_sheet    [R=301,L]
+    RewriteRule ^s/contact$   https://%{HTTP_HOST}/                    [R=301,L]
+    RewriteRule ^s/concept$   https://%{HTTP_HOST}/concept             [R=301,L]
+    RewriteRule ^s/newface$   https://%{HTTP_HOST}/                    [R=301,L]
 
     RewriteCond %{QUERY_STRING} ^dsp=153$
-    RewriteRule ^s/newslist$ https://club-firenze.net? [R=301,L]
+    RewriteRule ^s/newslist$ https://%{HTTP_HOST}/? [R=301,L,QSD]
 
+    # ここから通常のLaravel公開ディレクトリへの振り分け
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ /public/$1 [L,QSA]
 </IfModule>

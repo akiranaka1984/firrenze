@@ -96,6 +96,9 @@
                                                     <option value="G" {{ $companion->cup == 'G' ? 'selected' : '' }} >G</option>
                                                     <option value="H" {{ $companion->cup == 'H' ? 'selected' : '' }} >H</option>
                                                     <option value="I" {{ $companion->cup == 'I' ? 'selected' : '' }} >I</option>
+                                                    <option value="J" {{ $companion->cup == 'J' ? 'selected' : '' }} >J</option>
+                                                    <option value="K" {{ $companion->cup == 'K' ? 'selected' : '' }} >K</option>
+                                                    <option value="L" {{ $companion->cup == 'L' ? 'selected' : '' }} >L</option>
                                                 </select>
                                             </div>
                                         </div>

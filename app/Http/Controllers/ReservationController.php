@@ -102,17 +102,23 @@ class ReservationController extends Controller
     }
 
     public function interview(Request $request)
-    {
-        if(!empty($request->is_hidden) && $request->is_hidden == 1){
-            $is_hidden = 1;
-            $interviews = Interview::whereIn('compatible',[0,1,2])->orderBy('id', 'DESC')->get();
-            return view('admin.interview.list', compact('interviews', 'is_hidden'));
-        }else{
-            $is_hidden = 0;
-            $interviews = Interview::whereIn('compatible',[0,1])->orderBy('id', 'DESC')->get();
-            return view('admin.interview.list', compact('interviews', 'is_hidden'));
-        }
+{
+    if(!empty($request->is_hidden) && $request->is_hidden == 1){
+        $is_hidden = 1;
+        $interviews = Interview::whereIn('compatible',[0,1,2])
+            ->orderBy('updated_at', 'DESC')  // created_atに変更
+            ->orderBy('id', 'DESC')           // 念のためidでも降順
+            ->get();
+        return view('admin.interview.list', compact('interviews', 'is_hidden'));
+    }else{
+        $is_hidden = 0;
+        $interviews = Interview::whereIn('compatible',[0,1])
+            ->orderBy('created_at', 'DESC')  // created_atに変更
+            ->orderBy('id', 'DESC')           // 念のためidでも降順
+            ->get();
+        return view('admin.interview.list', compact('interviews', 'is_hidden'));
     }
+}
 
     public function getInterviewById(Request $request)
     {

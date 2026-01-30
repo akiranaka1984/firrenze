@@ -158,7 +158,7 @@
                     }
         
                     let content = `お名前: ` + response.name + `<br>
-                                   メールアドレス: ` + response.email + `<br>
+                                   メールアドレス: ` + response.mail + `<br>
                                    電話番号: ` + response.tel + `<br>
                                    Line ID: ` + response.line_id + `<br>
                                    お問合わせ内容: ` + response.inquiry + `<br>

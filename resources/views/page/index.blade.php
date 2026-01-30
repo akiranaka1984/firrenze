@@ -401,6 +401,50 @@
                     </tr>
                 </table>
             </div>
+            <!-- 追加バナーセクション -->
+            <div class="additional-banners" style="margin-top: 10px; padding-top: 10px;">
+                <div class="banner-title">求人情報・その他エリア</div>
+                
+                <!-- ①求人バナー -->
+                <div style="margin-bottom: 15px;">
+                    <table style="line-height:0;font-size:0;width:100%;max-width:468px;background-color:white;border-radius:2px;margin:0 auto;" cellspacing="0" cellpadding="0"><tr><td style="padding:0;" rowspan="3"><a href="https://hg-deli.com/recruit/pref/tokyo/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/tokyo-main.gif" alt="東京 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td><td style="padding:0;"  colspan="2"><a href="https://hg-deli.com/recruit/pref/tokyo/area/shibuya_ebisu_aoyama/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/shibuya.gif" alt="渋谷 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td><td style="padding:0;"  colspan="2"><a href="https://hg-deli.com/recruit/pref/tokyo/area/shinjuku/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/shinjyuku.gif" alt="新宿 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td><td style="padding:0;"><a href="https://hg-deli.com/recruit/pref/tokyo/area/roppongi_akasaka/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/roppongi-akasaka.gif" alt="六本木・赤坂 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td></tr><tr><td style="padding:0;"><a href="https://hg-deli.com/recruit/pref/tokyo/area/ginza/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/ginza.gif" alt="銀座 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td><td style="padding:0;" colspan="2"><a href="https://hg-deli.com/recruit/pref/tokyo/area/shinagawa/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/shinagawa.gif" alt="品川 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td><td style="padding:0;" colspan="2"><a href="https://hg-deli.com/recruit/pref/tokyo/area/marunouchi_nihonbashi/" target="_blank"><img style="width:100%;" src="https://hg-deli.com/img/link/RL1S/tokyo-marunouchi-nihonbashi.gif" alt="東京・丸の内・日本橋 | 高級デリヘル求人パーフェクトガイド" border="0"></a></td></tr><tr><td style="padding:0;"width="15.5982%" height="0"></td><td style="padding:0;"width="4.7008%" height="0"></td><td style="padding:0;"width="10.8974%" height="0"></td><td style="padding:0;"width="9.401%" height="0"></td><td style="padding:0;"width="20.7264%" height="0"></td></tr></table>
+                </div>
+                
+                <!-- ②お台場・豊洲 -->
+                <div style="margin-bottom: 15px;">
+                    <a href="https://hg-deli.com/pref/tokyo/area/odaiba_toyosu/" target="_blank"><img src="https://hg-deli.com/img/link/odaiba_toyosu468x60.jpg" alt="お台場・豊洲 - 高級デリヘルTOP10ランキング" style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" border="0"></a>
+                </div>
+                
+                <!-- ③水道橋・御茶ノ水・秋葉原 -->
+                <div style="margin-bottom: 15px;">
+                    <a href="https://hg-deli.com/pref/tokyo/area/suidobashi_ochanomizu_akihabara/" target="_blank"><img src="https://hg-deli.com/img/link/suidobashi_ochanomizu_akihabara468x60.jpg" alt="水道橋・御茶ノ水・秋葉原 - 高級デリヘルTOP10ランキング" style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" border="0"></a>
+                </div>
+                
+                <!-- ④中野・吉祥寺・立川 -->
+                <div style="margin-bottom: 15px;">
+                    <a href="https://hg-deli.com/pref/tokyo/area/nakano_kichijoji_tachikawa/" target="_blank"><img src="https://hg-deli.com/img/link/nakano_kichijoji_tachikawa468x60.jpg" alt="中野・吉祥寺・立川 - 高級デリヘルTOP10ランキング" style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" border="0"></a>
+                </div>
+                
+                <!-- ⑤世田谷 -->
+                <div style="margin-bottom: 15px;">
+                    <a href="https://hg-deli.com/pref/tokyo/area/setagaya/" target="_blank"><img src="https://hg-deli.com/img/link/setagaya468x60.jpg" alt="世田谷 - 高級デリヘルTOP10ランキング" style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" border="0"></a>
+                </div>
+                <!-- ⑥高級デリヘル.JP -->
+                <div style="margin-bottom: 15px;">
+                    <a href="https://www.koukyuderi.jp/" target="_blank"><img src="https://www.koukyuderi.jp/img/banner/koukyuderi46860.gif" alt="高級デリヘル.JP" style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" border="0"></a>
+                </div>
+                <!-- ⑦Japan Friday Night（ここに追加） -->
+<div style="margin-bottom: 15px;">
+    <a href="https://japanfridaynight.com/" target="_blank" rel="noopener">
+        <img src="https://japanfridaynight.com/wp-content/uploads/2025/02/486_60.png" 
+             alt="外国人向け特化 日本の風俗情報 Japan Friday Night" 
+             style="width: 100%; max-width: 468px; height: auto; display: block; margin: 0 auto;" 
+             border="0"
+             loading="lazy"
+             decoding="async">
+    </a>
+</div>
+            </div>
         </div>
     </div>
 </div>

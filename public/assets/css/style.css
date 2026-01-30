@@ -389,7 +389,7 @@ td.ui-datepicker-week-end:first-child a.ui-state-default {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 65%;
+    width: 50%;
     transform: translate(-50%,-50%);
   }
 
@@ -5733,7 +5733,6 @@ NEWS PAGE
 .banner-container {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 

@@ -408,17 +408,15 @@
                         $('thead td', row).each(function(k) {
                             cell = $(this);
                             let cmdate = cell.data('date');
-                            if ((moment(event.start).format('MM') != moment(cmdate).format('MM')) && (moment(event.end).format('MM') != moment(cmdate).format('MM'))) {
-                                let xdata = $events_data.find((item)=>{ return item.date == cmdate })
-                                if(xdata){
-                                    let count = xdata.count
-                                    $('tbody td', row).eq(k).data('count', count);
-                                    $('tbody td', row).eq(k).html(count+'名出勤');
-                                }
+                            // if文を削除して、常に表示するように変更
+                            let xdata = $events_data.find((item)=>{ return item.date == cmdate })
+                            if(xdata){
+                                let count = xdata.count
+                                $('tbody td', row).eq(k).data('count', count);
+                                $('tbody td', row).eq(k).html(count+'名出勤');
                             }
                         });
                     });
-
                 }
             });
 
