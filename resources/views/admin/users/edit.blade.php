@@ -1,15 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="6" r="4"/><path stroke-linecap="round" d="M19.997 18c.003-.164.003-.331.003-.5c0-2.485-3.582-4.5-8-4.5s-8 2.015-8 4.5S4 22 12 22c2.231 0 3.84-.157 5-.437"/></g></svg>
-        ユーザー</h2> <br />
-    
+    <div class="page-header-block">
+        <h2>ユーザー</h2>
+    </div>
+
     <div class="tile-stats tile-primary frm-head"> ユーザーの編集</div>
 
     <div class="row">

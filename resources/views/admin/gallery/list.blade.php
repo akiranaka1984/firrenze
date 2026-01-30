@@ -1,22 +1,16 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Zm0-2h14V5H5v14Zm1-2h12l-3.75-5l-3 4L9 13l-3 4Zm-1 2V5v14Z"/></svg>
-        画像</h2> <br />
-    
+    <div class="page-header-block">
+        <h2>画像</h2>
+    </div>
+
     <div class="tile-stats tile-primary frm-head"> 画像</div>
 
     <div class="gallery-env">
         <div class="row">
             <div class="col-sm-12">
                 <h3>イメージ一覧</h3>
-                <hr />
             </div>    
             <form role="form" method="post" action="{{ route('admin.gallery.upload') }}" enctype="multipart/form-data" >
                 @csrf   
@@ -25,7 +19,7 @@
                         <input type="file" name="photos[]" class="form-control" multiple required>
                     </div>
                     <div class="col-sm-2">
-                        <button type="submit" class="btn btn-blue">Upload</a>
+                        <button type="submit" class="btn btn-blue">Upload</button>
                     </div>
                 </div>
             </form>
@@ -35,7 +29,7 @@
                 <div class="col-sm-2 col-xs-4" data-tag="1d">
                     <article class="image-thumb"> 
                         <a href="#" class="image"> 
-                            <img src="{{ $gallery->filename }}" style="width:175px; height:175px;" /> 
+                            <img src="{{ $gallery->filename }}" class="gallery-thumb" />
                         </a>
                         <div class="image-options"> 
                             <a href="#" class="edit" data-src="{{ $gallery->filename }}" ><i class="entypo-pencil"></i></a>
@@ -51,16 +45,15 @@
     </div>
 
     <div class="modal fade" id="album-image-options">
-        <div class="modal-dialog" style="width:500px">
+        <div class="modal-dialog modal-dialog-md">
             <div class="modal-content">
                 <div class="gallery-image-edit-env"> 
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> 
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <img src="" class="img-responsive view_image_src" style="width:500px; max-height:500px;" /> 
+                        <img src="" class="img-responsive view_image_src modal-preview-img" /> 
                     </div>
-                    <hr/>
                     <div class="row m-0">
                         <h2>Image Path:</h2>
                         <span class="view_image_path text-blue"></span>

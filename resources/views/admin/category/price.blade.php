@@ -1,15 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13.92 11H18v2h-5v2h5v2h-5v4h-2v-4H6v-2h5v-2H6v-2h4.08L5 3h2.37L12 10.29L16.63 3H19l-5.08 8Z"/></svg>
-    価格</h2> <br />
-    
+    <div class="page-header-block">
+        <h2>価格</h2>
+    </div>
+
     <div class="tile-stats tile-primary frm-head"> 価格</div>
         
     <div class="row">

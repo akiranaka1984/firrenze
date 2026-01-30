@@ -1,15 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14.5 18q-1.05 0-1.775-.725T12 15.5q0-1.05.725-1.775T14.5 13q1.05 0 1.775.725T17 15.5q0 1.05-.725 1.775T14.5 18ZM5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10ZM5 8h14V6H5v2Zm0 0V6v2Z"/></svg>
-        イベント</h2> <br />
-    
+    <div class="page-header-block">
+        <h2>イベント</h2>
+    </div>
+
     <div class="tile-stats tile-primary frm-head"> イベント</div>
 
     <div class="panel panel-primary" data-collapsed="0">
@@ -40,15 +35,13 @@
                 <div class="col-md-2"></div>
             </div>
 
-            <hr/>
-
             <div class="row p-1">
                 <div class="col-md-12">
                     <div class="form-group"> 
-                        <label for="frmShortMessage" class="col-sm-12 control-label" style="text-align:left;">{{ __('Text Data1') }}</label>
-                        <div class="col-sm-12 frm-inpt"> 
+                        <label for="frmTextData1" class="col-sm-12 control-label text-left">{{ __('Text Data1') }}</label>
+                        <div class="col-sm-12 frm-inpt">
                             <div class="row mt-1">
-                                <textarea  name="text_data1" class="form-control" id="frmShortMessage" rows="15" >{{ $text_data1 }}</textarea>
+                                <textarea  name="text_data1" class="form-control" id="frmTextData1" rows="15" >{{ $text_data1 }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -58,10 +51,10 @@
             <div class="row p-1">
                 <div class="col-md-12">
                     <div class="form-group"> 
-                        <label for="frmShortMessage" class="col-sm-12 control-label"  style="text-align:left;">{{ __('Text Data2') }}</label>
-                        <div class="col-sm-12 frm-inpt"> 
+                        <label for="frmTextData2" class="col-sm-12 control-label text-left">{{ __('Text Data2') }}</label>
+                        <div class="col-sm-12 frm-inpt">
                             <div class="row mt-1">
-                                <textarea  name="text_data2" class="form-control" id="frmShortMessage" rows="15">{{ $text_data2 }}</textarea>
+                                <textarea  name="text_data2" class="form-control" id="frmTextData2" rows="15">{{ $text_data2 }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -71,10 +64,10 @@
             <div class="row p-1">
                 <div class="col-md-12">
                     <div class="form-group"> 
-                        <label for="frmShortMessage" class="col-sm-12 control-label"  style="text-align:left;">{{ __('Text Data3') }}</label>
-                        <div class="col-sm-12 frm-inpt"> 
+                        <label for="frmTextData3" class="col-sm-12 control-label text-left">{{ __('Text Data3') }}</label>
+                        <div class="col-sm-12 frm-inpt">
                             <div class="row mt-1">
-                                <textarea  name="text_data3" class="form-control" id="frmShortMessage" rows="15">{{ $text_data3 }}</textarea>
+                                <textarea  name="text_data3" class="form-control" id="frmTextData3" rows="15">{{ $text_data3 }}</textarea>
                             </div>
                         </div>
                     </div>

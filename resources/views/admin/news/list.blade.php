@@ -1,14 +1,9 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M16.786 3.725a1.75 1.75 0 0 0-2.846.548L12.347 7.99A4.745 4.745 0 0 0 8.07 9.291l-1.71 1.71a.75.75 0 0 0 0 1.06l2.495 2.496l-5.385 5.386a.75.75 0 1 0 1.06 1.06l5.386-5.385l2.495 2.495a.75.75 0 0 0 1.061 0l1.71-1.71a4.745 4.745 0 0 0 1.302-4.277l3.716-1.592a1.75 1.75 0 0 0 .548-2.846l-3.962-3.963Zm-1.468 1.139a.25.25 0 0 1 .407-.078l3.963 3.962a.25.25 0 0 1-.079.407l-4.315 1.85a.75.75 0 0 0-.41.941a3.25 3.25 0 0 1-.763 3.396l-1.18 1.18l-4.99-4.99l1.18-1.18a3.25 3.25 0 0 1 3.396-.762a.75.75 0 0 0 .942-.41l1.85-4.316Z" clip-rule="evenodd"/></svg>
-    ニュース編集</h2> <br />
+    <div class="page-header-block">
+        <h2>ニュース編集</h2>
+    </div>
 
     <!-- <div class="col-md-12">
         <div class="alert alert-success p-5px sidemenu-href">
@@ -64,7 +59,7 @@
         <tbody id="left-events" class="dragula">
             @foreach($newsLists as $news)
                 <tr class="item_div" data-id="{{ $news->id }}">
-                    <td style="display: flex; justify-content: center; gap: 2px;">
+                    <td class="td-actions">
                         <button type="button" class="btn btn-danger btn-sm sidemenu-href delete_btn" data-id="{{ $news->id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z"/></svg>
                         </button>
@@ -88,7 +83,7 @@
 </div>
 
 <div class="modal fade" id="modal-1">
-    <div class="modal-dialog" style="width: 70%;">
+    <div class="modal-dialog modal-dialog-wide">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

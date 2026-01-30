@@ -1,6 +1,8 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
+    <div class="page-header-block">
+        <h2>ダッシュボード</h2>
+    </div>
 
 @endsection

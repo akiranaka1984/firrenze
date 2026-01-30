@@ -1,14 +1,9 @@
 @extends('admin.layout')
 
 @section('content')
-    <hr />
-    <!-- <ol class="breadcrumb bc-3">
-        <li> <a href="../../dashboard/main/index.html"><i class="fa-home"></i>Home</a> </li>
-        <li> <a href="../../ui/panels/index.html">UI Elements</a> </li>
-        <li class="active"> <strong>Buttons</strong> </li>
-    </ol> -->
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699ZM1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756L1.4 7.742Zm5.267 6.877v1.666H5v-1.666h1.667Zm4.166 0v1.666H9.167v-1.666h1.666Zm4.167 0v1.666h-1.667v-1.666H15Zm-8.333-3.977v1.666H5v-1.666h1.667Zm4.166 0v1.666H9.167v-1.666h1.666Zm4.167 0v1.666h-1.667v-1.666H15ZM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0v-.92Z"></path></svg>
-        モデル登録</h2> <br />
+    <div class="page-header-block">
+        <h2>モデル登録</h2>
+    </div>
 
     <div class="tile-stats tile-primary frm-head"> モデル情報入力</div>
 
@@ -141,7 +136,7 @@
                         <div class="form-group"> <label for="frmShortMessage" class="col-sm-3 control-label">店舖メッセージ</label>
                             <div class="col-sm-8 frm-inpt">
                                 <div class="row">
-                                    <label class="col-sm-8 control-label" style="color:hotpink; text-align:left;">女性紹介のメッセージを記入してください</label>
+                                    <label class="col-sm-8 control-label label-hint">女性紹介のメッセージを記入してください</label>
                                 </div>
                                 <div class="row mt-1">
                                     <textarea  name="short_message" class="ckeditor form-control" id="frmShortMessage" ></textarea>
@@ -158,35 +153,31 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group pt-0" style="display: flex; flex-direction: column; gap: 5px">
-                            <div style="display: flex; justify-content: center;">
-                                <h4 style="font-weight: 700">追加設定項目</h4>
-                            </div>
-                            <div>
+                        <div class="form-section">
+                            <div class="form-section-title">追加設定項目</div>
+                            <div class="form-group">
                                 <label for="frmPosition" class="col-sm-3 control-label">前(現)職   </label>
                                 <div class="col-sm-8 frm-inpt">
                                     <input type="text" name="frm_position" class="form-control" id="frmPosition" value="" placeholder="">
                                 </div>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <label for="frmLookALive" class="col-sm-3 control-label">似ている芸能人</label>
                                 <div class="col-sm-8 frm-inpt">
                                     <input type="text" name="frm_celebrities_who_look_alike" class="form-control" id="frmLookALive" value="" placeholder="似ている芸能人">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group pt-0" style="display: flex; flex-direction: column; gap: 5px">
-                            <div style="display: flex; justify-content: center;">
-                                <h4 style="font-weight: 700">写真管理</h4>
-                            </div>
-                            <div>
+                        <div class="form-section">
+                            <div class="form-section-title">写真管理</div>
+                            <div class="form-group">
                                 <label for="frmPhoto" class="col-sm-3 control-label">ファイル指定</label>
                                 <div class="col-sm-8 frm-inpt">
                                     <input type="file" name="frm_photo" class="form-control" id="frmPhoto" placeholder="選択されていません">
                                     ※推奨画像サイズ：300px ⅹ 400px(サイドビックアップは207px ⅹ 356px)<br>※上記以外の比率で画像をアップロードした場合、画像の表示が崩れる場合があります
                                 </div>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <label for="frmTitle" class="col-sm-3 control-label">タイトル</label>
                                 <div class="col-sm-8 frm-inpt">
                                     <input type="text" name="frm_title" class="form-control" id="frmTitle" placeholder="写真タイトルを入力してください">
