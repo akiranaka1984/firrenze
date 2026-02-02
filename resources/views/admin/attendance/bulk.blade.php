@@ -21,10 +21,6 @@
                 </form>
                 <div class="bulk-attendance-actions">
                     <span class="bulk-hint-text">操作後「出勤確定」で保存されます</span>
-                    <button type="button" class="btn btn-orange btn-confirm-attendance">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                        出勤確定
-                    </button>
                 </div>
             </div>
         </div>
@@ -138,12 +134,10 @@
         </table>
     </div>
 
-    <div class="text-right" style="margin: 15px 0 30px;">
-        <button type="button" class="btn btn-orange btn-confirm-attendance">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            出勤確定
-        </button>
-    </div>
+    <button type="button" class="btn btn-orange btn-confirm-attendance" style="position:fixed;bottom:30px;right:30px;z-index:1000;padding:12px 24px;font-size:15px;box-shadow:0 4px 16px rgba(0,0,0,0.3);border-radius:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        出勤確定
+    </button>
 
     <script type="text/javascript">
         $(document).ready(function(){
