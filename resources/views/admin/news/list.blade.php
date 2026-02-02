@@ -165,13 +165,17 @@
     let nPsitionObj = {}
     $(document).ready(function(){
 
-        CKEDITOR.replace('frmText');
+        if (typeof CKEDITOR !== 'undefined') {
+            CKEDITOR.replace('frmText');
+        }
 
         $(document).on('click','.showSendEmailModal', function(){
             $('#news_id').val('');
             $('#frmTitle').val('');
-            if (CKEDITOR.instances.frmText) {
+            if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances.frmText) {
                 CKEDITOR.instances.frmText.setData('');
+            } else {
+                $('#frmText').val('');
             }
             $('#frmCompanionId').val('').trigger('change');
         })
@@ -295,7 +299,11 @@
     function openEditModal(data) {
         $('#news_id').val(data['id'])
         $('#frmTitle').val(data['title'])
-        CKEDITOR.instances.frmText.setData(data['text']);
+        if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances.frmText) {
+            CKEDITOR.instances.frmText.setData(data['text']);
+        } else {
+            $('#frmText').val(data['text']);
+        }
         $('#modal-1').modal('show');
     }
 
