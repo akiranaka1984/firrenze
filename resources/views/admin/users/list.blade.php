@@ -77,7 +77,7 @@
                     padding: '2em'
                 }).then(function(result) {
                     if(result.value){
-                        window.location.href = "/admin/users/delete?id="+id;
+                        window.location.href = `{{ route('admin.users.delete') }}?id=`+id;
                     }
                 })
             })

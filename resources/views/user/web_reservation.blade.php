@@ -1,7 +1,5 @@
 @extends('page.layout')
 
-@extends('page.layout')
-
 @section('content')
     <section class="kv_main">
         <div class="kv_wrap">

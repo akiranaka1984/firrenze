@@ -146,7 +146,7 @@
                 padding: '2em'
             }).then(function(result) {
                 if(result.value){
-                    window.location.href = "/admin/photo/delete?id="+id;
+                    window.location.href = `{{ route('admin.photo_size.delete') }}?id=`+id;
                 }
             })
         })

@@ -12,6 +12,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\Companion;
+use App\Models\RecommendedPoint;
 use App\Models\PhotoSizeSetting;
 use App\Models\CompanionPhoto;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -91,7 +92,8 @@ class CompanionController extends Controller
     public function add(Request $request)
     {
         $categories = Category::where(['status' => 1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
-        return view('admin.companion.add', compact('categories'));
+        $recommendedPoints = RecommendedPoint::where(['status' => 1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
+        return view('admin.companion.add', compact('categories', 'recommendedPoints'));
     }
 
     private function savePhoto($request, $companionId)
@@ -189,10 +191,11 @@ class CompanionController extends Controller
     {
         $stab = $request->stab;
         $categories = Category::where(['status' => 1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
+        $recommendedPoints = RecommendedPoint::where(['status' => 1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
         $companion = Companion::with(['category'])->where(['id' => $request->id])->first();
         $photoSizeSettings = PhotoSizeSetting::with(['photo_category'])->where(['status' => 1])->get();
         $companionPhotos = CompanionPhoto::with(['photo_size_setting'])->where(['companion_id' => $request->id, 'status' => 1])->get();
-        return view('admin.companion.edit', compact('categories', 'companion', 'photoSizeSettings', 'companionPhotos', 'stab'));
+        return view('admin.companion.edit', compact('categories', 'recommendedPoints', 'companion', 'photoSizeSettings', 'companionPhotos', 'stab'));
     }
 
     public function update(Request $request)

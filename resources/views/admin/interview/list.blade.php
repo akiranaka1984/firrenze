@@ -35,10 +35,11 @@
     <table class="table table-bordered"> 
         <thead> 
             <tr> 
-                <th class="w-10">検索</th> 
-                <th class="w-35">メールアドレス</th> 
-                <th class="w-35">連絡先</th> 
-                <th>編集</th> 
+                <th class="w-10"></th>
+                <th>メールアドレス</th>
+                <th>連絡先</th>
+                <th>面接日時</th>
+                <th>ステータス</th> 
             </tr> 
         </thead> 
         <tbody> 
@@ -57,7 +58,7 @@
                     <td>{{ $interview->tel }}</td>
                     <td>
                         <!-- 面接日時を表示 -->
-                        {{ \Carbon\Carbon::parse($interview->interview_date)->format('Y年m月d日 H:i') }}
+                        {{ $interview->interview_date ? \Carbon\Carbon::parse($interview->interview_date)->format('Y年m月d日 H:i') : '未設定' }}
                     </td>
                     <td class="dl-flex"> 
                         <button type="button" class="btn btn-success btn-icon-align openModelDetails" data-id="{{ $interview->id }}" >
@@ -130,20 +131,27 @@
                     id: id
                 }),
                 success: function (response) {
+                    function escHtml(str) {
+                        if (!str) return '';
+                        var div = document.createElement('div');
+                        div.appendChild(document.createTextNode(str));
+                        return div.innerHTML;
+                    }
+
                     // 写真の表示
                     if (response.photo) {
-                        $('.modal_photo').html(`<img src="{{ url('/storage/photos/interview') }}/` + response.photo + `" style="width:100%">`);
+                        $('.modal_photo').html(`<img src="{{ url('/storage/photos/interview') }}/` + encodeURIComponent(response.photo) + `" style="width:100%">`);
                         $('.tr_photo').show();
                     } else {
-                        $('.modal_photo').html('写真がありません');
+                        $('.modal_photo').text('写真がありません');
                         $('.tr_photo').show();
                     }
-        
+
                     // その他のメッセージの表示
-                    let otherMessage = response.other_message ? response.other_message : '特になし';
-        
+                    let otherMessage = response.other_message ? escHtml(response.other_message) : '特になし';
+
                     $('.modal_last_update').html(moment(response.updated_at).format('YYYY年M月D日 HH:mm'));
-        
+
                     if (response.compatible == 0) {
                         $('.modal_attribute').html('未対応');
                     } else if (response.compatible == 1) {
@@ -151,21 +159,21 @@
                     } else {
                         $('.modal_attribute').html('対応済');
                     }
-        
-                    let content = `お名前: ` + response.name + `<br>
-                                   メールアドレス: ` + response.mail + `<br>
-                                   電話番号: ` + response.tel + `<br>
-                                   Line ID: ` + response.line_id + `<br>
-                                   お問合わせ内容: ` + response.inquiry + `<br>
-                                   ご年齢: ` + response.age + `歳<br>
-                                   身長: ` + response.height + `cm<br>
-                                   体重: ` + response.weight + `kg<br>
-                                   バストサイズ: ` + response.bust + ` カップ<br>
+
+                    let content = `お名前: ` + escHtml(response.name) + `<br>
+                                   メールアドレス: ` + escHtml(response.mail) + `<br>
+                                   電話番号: ` + escHtml(response.tel) + `<br>
+                                   Line ID: ` + escHtml(response.line_id) + `<br>
+                                   お問合わせ内容: ` + escHtml(response.inquiry) + `<br>
+                                   ご年齢: ` + escHtml(response.age) + `歳<br>
+                                   身長: ` + escHtml(response.height) + `cm<br>
+                                   体重: ` + escHtml(response.weight) + `kg<br>
+                                   バストサイズ: ` + escHtml(response.bust) + ` カップ<br>
                                    タトゥー・傷跡の有無など: ` + (response.tattoo == 0 ? '無し' : '有り') + `<br>
                                    面接希望日: ` + (response.interview_date ? moment(response.interview_date).format('YYYY年M月D日 HH:mm') : '未設定') + `<br>
-                                   写真: ` + (response.photo ? `<a href="{{ url('/storage/images') }}/` + response.photo + `" target="_blank">写真を見る</a>` : '写真がありません') + `<br>
+                                   写真: ` + (response.photo ? `<a href="{{ url('/storage/photos/interview') }}/` + encodeURIComponent(response.photo) + `" target="_blank">写真を見る</a>` : '写真がありません') + `<br>
                                    その他のメッセージ: ` + otherMessage + `<br>`;
-        
+
                     $('.modal_content').html(content);
                     $('#modal-1').modal('show');
                 }, // success コールバック終了

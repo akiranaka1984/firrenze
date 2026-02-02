@@ -60,7 +60,7 @@
                     padding: '2em'
                 }).then(function(result) {
                     if(result.value){
-                        window.location.href = "/admin/telegram/delete?id="+id;
+                        window.location.href = `{{ route('admin.telegram.delete') }}?id=`+id;
                     }
                 })
             })

@@ -83,7 +83,7 @@
                 padding: '2em'
             }).then(function(result) {
                 if(result.value){
-                    window.location.href = "/admin/gallery/delete?id="+data_id;
+                    window.location.href = `{{ route('admin.gallery.delete') }}?id=`+data_id;
                 }
             })
         })

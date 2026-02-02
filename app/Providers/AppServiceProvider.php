@@ -6,6 +6,9 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
+use App\Models\Pages;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +31,17 @@ class AppServiceProvider extends ServiceProvider
     {
         // 既存の設定：ページネーションをBootstrapで
         Paginator::useBootstrap();
+
+        // page.layout に header/footer を自動注入（キャッシュ付き）
+        View::composer('page.layout', function ($view) {
+            $header = Cache::remember('pages_header', 3600, function () {
+                return Pages::where(['name' => 'header'])->first();
+            });
+            $footer = Cache::remember('pages_footer', 3600, function () {
+                return Pages::where(['name' => 'footer'])->first();
+            });
+            $view->with(compact('header', 'footer'));
+        });
 
         // Artisan(tinker/queue等)実行時はHTTP_HOSTがないので切替え処理はスキップ
         if (app()->runningInConsole()) {

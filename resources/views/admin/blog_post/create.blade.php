@@ -96,7 +96,7 @@
 
         $(document).on('change','#frmTemplateName', function(){
             let template_name = $(this).val()
-            window.location.href = "/admin/blog_post/create?id="+template_name;
+            window.location.href = `{{ route('admin.blog_post.create') }}?id=`+template_name;
         })
     })
 

@@ -116,7 +116,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td class="w-30">予約日</td>
+                                        <td class="w-30">最終更新日</td>
                                         <td class="modal_last_update_date"></td>
                                     </tr>
 
@@ -153,44 +153,51 @@
                 id: id
             }),
             success: function (response) {
-                console.log('Response received:', response); // デバッグログ
-                
+                function escHtml(str) {
+                    if (!str) return '';
+                    var div = document.createElement('div');
+                    div.appendChild(document.createTextNode(str));
+                    return div.innerHTML;
+                }
+
                 // 既存の項目設定
-                $('.modal_name').html(response.name);
-                $('.modal_email').html(response.mail);
-                $('.modal_tel').html(response.tel);
-                
-                // 希望予約日の情報
+                $('.modal_name').text(response.name);
+                $('.modal_email').text(response.mail);
+                $('.modal_tel').text(response.tel);
+
+                // 希望予約日の情報（datetimeはmomentでフォーマット）
+                let fmtDate = function(d) { return d ? moment(d).format('YYYY年MM月DD日 HH:mm') : '未設定'; };
+
                 let reservationDatesContent = `
-                    <i class="entypo-right-bold"></i> 希望ご予約日(第1 候補)<br>` + (response.date1 ? response.date1 : '未設定') + `
+                    <i class="entypo-right-bold"></i> 希望ご予約日(第1 候補)<br>` + fmtDate(response.date1) + `
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> 希望ご予約日(第2 候補)<br>` + (response.date2 ? response.date2 : '未設定') + `
+                    <i class="entypo-right-bold"></i> 希望ご予約日(第2 候補)<br>` + fmtDate(response.date2) + `
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> 希望ご予約日(第3 候補)<br>` + (response.date3 ? response.date3 : '未設定') + `
+                    <i class="entypo-right-bold"></i> 希望ご予約日(第3 候補)<br>` + fmtDate(response.date3) + `
                 `;
-                
+
                 // コンテンツ内容の設定
                 let content = `
-                    <i class="entypo-right-bold"></i> LINE ID<br>`+ (response.lineid || '未設定') +`
+                    <i class="entypo-right-bold"></i> LINE ID<br>`+ escHtml(response.lineid || '未設定') +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご希望の女性(第1 候補)<br>`+ response.lady1 +`
+                    <i class="entypo-right-bold"></i> ご希望の女性(第1 候補)<br>`+ escHtml(response.lady1) +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご希望の女性(第2 候補)<br>`+ response.lady2 +`
+                    <i class="entypo-right-bold"></i> ご希望の女性(第2 候補)<br>`+ escHtml(response.lady2) +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご希望の女性(第3 候補)<br>`+ response.lady3 +`
+                    <i class="entypo-right-bold"></i> ご希望の女性(第3 候補)<br>`+ escHtml(response.lady3) +`
                     <p>---------------------------------</p>
                     ` + reservationDatesContent + `
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご希望コース<br>`+ (response.cource || '未設定') +`
+                    <i class="entypo-right-bold"></i> ご希望コース<br>`+ escHtml(response.cource || '未設定') +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご利用場所<br>`+ (response.place || '未設定') +`
+                    <i class="entypo-right-bold"></i> ご利用場所<br>`+ escHtml(response.place || '未設定') +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> お支払い方法<br>`+ (response.pay || '未設定') +`
+                    <i class="entypo-right-bold"></i> お支払い方法<br>`+ escHtml(response.pay || '未設定') +`
                     <p>---------------------------------</p>
-                    <i class="entypo-right-bold"></i> ご希望連絡方法<br>`+ (response.contact || '未設定') +`
+                    <i class="entypo-right-bold"></i> ご希望連絡方法<br>`+ escHtml(response.contact || '未設定') +`
                     <p>---------------------------------</p>
-                    その他<br>`+ (response.cmnt || '未設定');
-                
+                    その他<br>`+ escHtml(response.cmnt || '未設定');
+
                 $('.modal_content').html(content);
         
                 $('.modal_reservation_date').html(moment(String(response.created_at)).format('YYYY年MM月DD日 HH:mm'));

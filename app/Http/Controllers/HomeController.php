@@ -35,11 +35,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $main = Pages::where(['name'=>'main'])->first();
         $campaign = Pages::where(['name'=>'campaign'])->first();
-    
+
         // 新しいコンパニオン情報
         $new_companions = Companion::with(['today_attendances','home_image', 'category'])
             ->where(['status'=>1])
@@ -80,7 +78,7 @@ class HomeController extends Controller
             ->get();
     
         return view('page.index', compact(
-            'header', 'footer', 'main', 'campaign',
+            'main', 'campaign',
             'new_companions2', 'today_attendances',
             'tomorrow_attendances', 'recent_news'
         ));
@@ -88,19 +86,15 @@ class HomeController extends Controller
 
     public function concept(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $concept = Pages::where(['name'=>'concept'])->first();
-        return view('page.concept', compact('header','footer','concept'));
+        return view('page.concept', compact('concept'));
     }
 
     public function details(Request $request)
     {
         $schedule_dates = $this->weekly_dates();
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $companion = Companion::with(['category','home_image', 'all_images', 'attendances'])->where(['id'=>$request->id ])->first();
-        return view('page.details', compact('header','footer', 'schedule_dates', 'companion'));
+        return view('page.details', compact('schedule_dates', 'companion'));
     }
 
     public function attendance_sheet(Request $request)
@@ -126,17 +120,15 @@ class HomeController extends Controller
     
         $req_date = $request->query('date', $currentDate);
     
-        $header = Pages::where(['name' => 'header'])->first();
-        $footer = Pages::where(['name' => 'footer'])->first();
         $attendance_sheet = Pages::where(['name' => 'attendance_sheet'])->first();
-    
+
         // 出勤データを position でソートして取得
         $today_attendances = Attendance::with(['companion'])
             ->where(['date' => $req_date])
             ->orderBy('position', 'asc') // position で昇順ソート
             ->get();
-    
-        return view('page.attendance_sheet', compact('header', 'footer', 'req_date', 'attendance_sheet', 'schedule_dates', 'today_attendances'));
+
+        return view('page.attendance_sheet', compact('req_date', 'attendance_sheet', 'schedule_dates', 'today_attendances'));
     }
 
 
@@ -153,8 +145,6 @@ class HomeController extends Controller
     $agent = new Agent();
     $isMobile = $agent->isMobile();
 
-    $header = Pages::where(['name' => 'header'])->first();
-    $footer = Pages::where(['name' => 'footer'])->first();
     $enrollment_table = Pages::where(['name' => 'enrollment_table'])->first();
 
     // 全体のデータを取得
@@ -278,24 +268,19 @@ class HomeController extends Controller
 
     $search_param = (object) $request->all();
 
-    return view('page.enrollment_table', compact('header', 'footer', 'search_param', 'enrollment_table', 'paginatedCompanions'));
+    return view('page.enrollment_table', compact('search_param', 'enrollment_table', 'paginatedCompanions'));
 }
 
 
     public function price(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $priceData = Pages::where(['name'=>'price'])->first();
-        // dd($price->text_data2);
         $categories = Category::with(['prices'])->where(['status'=>1])->orderBy('position', 'ASC')->orderBy('id', 'ASC')->get();
-        return view('page.price', compact('header','footer', 'priceData', 'categories'));
+        return view('page.price', compact('priceData', 'categories'));
     }
 
     public function news(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $event = Pages::where(['name'=>'event'])->first();
         if ($request->year) {
             $news_data = News::whereYear('created_at', $request->year)->orderBy('created_at', 'desc')->paginate(10);
@@ -303,16 +288,14 @@ class HomeController extends Controller
             $news_data = News::orderBy('created_at', 'desc')->paginate(10);
         }
         $years = News::selectRaw('YEAR(created_at) as year')->groupBy('year')->orderBy('year', 'desc')->get();
-        return view('page.news', compact('header','footer', 'event', 'news_data', 'years'));
+        return view('page.news', compact('event', 'news_data', 'years'));
     }
 
     public function news_details(Request $request, $slug)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $event = Pages::where(['name'=>'event'])->first();
         $news_detail = News::where('slug', $slug)->first();
-        return view('page.news-details', compact('header','footer', 'event', 'news_detail'));
+        return view('page.news-details', compact('event', 'news_detail'));
     }
 
     function weekly_dates()
@@ -348,17 +331,13 @@ class HomeController extends Controller
 
     public function privacy_policy(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $privacy_policy = Pages::where(['name'=>'privacy_policy'])->first();
-        return view('page.privacy_policy', compact('header','footer', 'privacy_policy'));
+        return view('page.privacy_policy', compact('privacy_policy'));
     }
 
     public function magazine(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
-        return view('page.magazine', compact('header','footer'));
+        return view('page.magazine');
     }
 
     public function magazine_save(Request $request)
@@ -383,9 +362,7 @@ class HomeController extends Controller
 
     public function contact(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
-        return view('page.contact', compact('header','footer'));
+        return view('page.contact');
     }
 
     public function contact_save(Request $request)
@@ -408,12 +385,10 @@ class HomeController extends Controller
 
     public function recruit(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $recruit = Pages::where(['name'=>'entry'])->first();
         $month=date('m');
         $day = date('d');
-        return view('page.recruit', compact('header','footer', 'recruit', 'month', 'day'));
+        return view('page.recruit', compact('recruit', 'month', 'day'));
     }
 
 public function recruit_save(Request $request)
@@ -594,8 +569,6 @@ private function handleImageUpload($file)
     
     public function reservation(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $month = date('m');
         $day = date('d');
         $prices = Price::join('categories','categories.id','=','prices.category_id')->selectRaw('*, prices.id')->get();
@@ -603,7 +576,7 @@ private function handleImageUpload($file)
         // クエリパラメーターから selected_date を取得、なければ今日の日付を使用
         $selected_date = $request->get('selected_date', date('Y-m-d'));
     
-        return view('page.reservation', compact('header', 'footer', 'month', 'day', 'prices', 'companions', 'selected_date'));
+        return view('page.reservation', compact('month', 'day', 'prices', 'companions', 'selected_date'));
     }
 
 
@@ -741,17 +714,13 @@ private function handleImageUpload($file)
 
     public function movie(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $movie = Pages::where(['name'=>'movie'])->first();
         $companions = Companion::with(['home_image', 'category'])->where(['status'=>1])->orderBy('id', 'DESC')->take(6)->get();
-        return view('page.movie', compact('header','footer','movie','companions'));
+        return view('page.movie', compact('movie','companions'));
     }
 
     public function ranking(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $ranking = Pages::where(['name'=>'ranking'])->first();
 
         $all_records = array();
@@ -760,7 +729,7 @@ private function handleImageUpload($file)
             $all_records[$category->name] = Companion::with(['category','home_image'])->where([ 'category_id'=>$category->id ])->where(['status' => 1])->orderBy('position')->take(6)->get();
         }
 
-        return view('page.ranking', compact('header','footer','ranking','all_records'));
+        return view('page.ranking', compact('ranking','all_records'));
     }
 
     public function attendance_notices(Request $request)
@@ -776,20 +745,16 @@ private function handleImageUpload($file)
 
     public function summary(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $summary = Pages::where(['name'=>'summary'])->first();
-        return view('page.summary', compact('header','footer', 'summary'));
+        return view('page.summary', compact('summary'));
     }
 
     public function entry(Request $request)
     {
-        $header = Pages::where(['name'=>'header'])->first();
-        $footer = Pages::where(['name'=>'footer'])->first();
         $entry = Pages::where(['name'=>'entry'])->first();
         $month=date('m');
         $day = date('d');
-        return view('page.entry', compact('header','footer', 'entry', 'month', 'day'));
+        return view('page.entry', compact('entry', 'month', 'day'));
     }
 
 

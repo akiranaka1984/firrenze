@@ -2,25 +2,25 @@
 
 @section('content')
     <div class="page-header-block">
-        <h2>基本写真サイズ編集</h2>
+        <h2>おすすめポイント管理</h2>
     </div>
 
-    <div class="tile-stats tile-primary frm-head"> 基本写真サイズ登録</div>
-        
-    
+    <div class="tile-stats tile-primary frm-head"> おすすめポイント登録</div>
+
+
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-primary" >
                 <div class="panel-body">
-                        
-                    <form method="post" action="{{ route('admin.photo.category.save') }}" role="form" class="form-horizontal form-groups-bordered">
+
+                    <form method="post" action="{{ route('admin.recommended_point.save') }}" role="form" class="form-horizontal form-groups-bordered">
                         @csrf
-                        <input type="hidden" name="id" id="txtId" > 
-                        <div class="form-group mt-1"> 
-                            <label class="col-sm-2 control-label">カテゴリー(必須)</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" name="name" class="form-control" id="txtName" required/> 
+                        <input type="hidden" name="id" id="txtId" >
+                        <div class="form-group mt-1">
+                            <label class="col-sm-2 control-label">ポイント名(必須)</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="name" class="form-control" id="txtName" required/>
                             </div>
                             <div class="col-sm-2">
                                 <button type="submit" class="btn btn-success btn-icon-align">
@@ -37,35 +37,35 @@
         </div>
     </div>
 
-    <div class="tile-stats tile-primary frm-head"> 基本写真サイズ編集</div>
+    <div class="tile-stats tile-primary frm-head"> おすすめポイント一覧</div>
 
 
-    <div class="col-md-12"> 
-        <table class="table table-bordered"> 
-            <thead> 
-                <tr> 
-                    <th class="w-75">種別名</th> 
-                    <th>編集</th> 
-                </tr> 
-            </thead> 
-            <tbody id="left-events" class="dragula"> 
-                @foreach($categories as $category)
-                    <tr class="trow" data-id="{{ $category->id }}"> 
-                        <td class="text-center text-dark"> {{ $category->name }} </td>
-                        <td class="dl-flex"> 
-                            <button type="button" class="btn btn-success btn-sm edit_btn" data-id="{{ $category->id }}" data-name="{{ $category->name }}" >
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="w-75">ポイント名</th>
+                    <th>編集</th>
+                </tr>
+            </thead>
+            <tbody id="left-events" class="dragula">
+                @foreach($recommendedPoints as $point)
+                    <tr class="trow" data-id="{{ $point->id }}">
+                        <td class="text-center text-dark"> {{ $point->name }} </td>
+                        <td class="dl-flex">
+                            <button type="button" class="btn btn-success btn-sm edit_btn" data-id="{{ $point->id }}" data-name="{{ $point->name }}" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="m18.988 2.012l3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287l-3-3L8 13z"/><path fill="currentColor" d="M19 19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"/></svg>
                             </button>
-                            <button type="button" class="btn btn-danger btn-sm ml-1 delete_btn" data-id="{{ $category->id }}" >
+                            <button type="button" class="btn btn-danger btn-sm ml-1 delete_btn" data-id="{{ $point->id }}" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z"/></svg>
                             </button>
                         </td>
-                    </tr> 
+                    </tr>
                 @endforeach
-            </tbody> 
-        </table> 
+            </tbody>
+        </table>
     </div>
-    <div class="form-group"> 
+    <div class="form-group">
         <div class="col-sm-2">
             <button type="button" class="btn btn-orange btn-icon-align save_all_position">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4s8-1.79 8-4s-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4Z"></path></svg>
@@ -98,24 +98,23 @@
                 padding: '2em'
             }).then(function(result) {
                 if(result.value){
-                    window.location.href = `{{ route('admin.photo.category.delete') }}?id=`+id;
+                    window.location.href = `{{ route('admin.recommended_point.delete') }}?id=`+id;
                 }
             })
         })
 
 
         $(document).on('click','.save_all_position', function(){
-            console.log(nPsitionObj)
             $.ajax({
                 type: 'POST',
-                url: `{{ route('admin.photo.category.position.save') }}`,
+                url: `{{ route('admin.recommended_point.position.save') }}`,
                 headers: {"Content-Type": "application/json"},
                 data: JSON.stringify({
                     "_token": "{{ csrf_token() }}",
                     data:nPsitionObj
                 }),
                 success: function (response) {
-                   simpleMessage('success',`{{__('Save Changes')}}`);
+                    simpleMessage('success',`{{__('Save Changes')}}`);
                 }
             })
         })
@@ -156,7 +155,7 @@
         })
     }
 
- </script>       
+ </script>
 
 
 @endsection
