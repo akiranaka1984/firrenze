@@ -11,7 +11,7 @@
         <title>管理パネル</title>
         <link rel="stylesheet" href="{{ url('/assets/css/jquery-ui-1.10.3.custom.min.css') }}">
         <link rel="stylesheet" href="{{ url('/assets/css/entypo.css') }}">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
         <link rel="stylesheet" href="{{ url('/assets/css/bootstrap.css') }}" >
         <link rel="stylesheet" href="{{ url('/assets/css/neon-core.css') }}?v=1.5" >
         <link rel="stylesheet" href="{{ url('/assets/css/neon-theme.css') }}?v=1.5" >
@@ -51,7 +51,7 @@
         <script src="{{ url('/assets/js/dragula.min.js') }}"></script>
         <script src="{{ url('/assets/js/datatables.js') }}"></script>
         <script src="{{ url('/assets/js/fullcalendar.min.js') }}"></script>
-        <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
         <script src="{{ url('/assets/js/bootstrap.js') }}"></script>
         <script src="{{ url('/assets/js/jquery.validate.min.js') }}"></script>
         <script src="{{ url('/assets/js/additional-methods.min.js') }}"></script>
