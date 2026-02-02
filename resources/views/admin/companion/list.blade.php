@@ -27,7 +27,6 @@
                     </div>
                 </form>
                 <div class="companion-toolbar-actions">
-                    <button type="button" class="btn btn-orange save_all_position">並び順を確定する</button>
                     <button type="button" class="btn btn-green" id="bulkAddingButton" data-toggle="modal" data-target="#bulkAddingModal">一括登録</button>
                 </div>
             </div>
@@ -188,4 +187,6 @@
     })
 </script>
     <div class="clearfix"></div>
+
+    <button type="button" class="btn btn-orange save_all_position" style="position:fixed;bottom:30px;right:30px;z-index:1000;padding:12px 24px;font-size:15px;box-shadow:0 4px 16px rgba(0,0,0,0.3);border-radius:8px;">並び順を確定する</button>
 @endsection
