@@ -102,8 +102,17 @@ class CompanionController extends Controller
             $photoSizeSetting = PhotoSizeSetting::with(['photo_category'])->where(['id' => 1])->first();
             $image = $request->file('frm_photo');
             $ext = $image->getClientOriginalExtension();
-            $imageName = $photoSizeSetting->prefix . '_' . $companionId . '.' . $ext;
+            $imageName = $photoSizeSetting->prefix . '_' . $companionId . '_' . time() . '.' . $ext;
             $folderPath = 'photos/' . $companionId . '/';
+
+            // 古いファイルを削除
+            $existingPhoto = CompanionPhoto::where([
+                'companion_id' => $companionId,
+                'photo_setting_id' => 1
+            ])->first();
+            if ($existingPhoto && $existingPhoto->photo) {
+                Storage::disk('public')->delete($folderPath . $existingPhoto->photo);
+            }
 
             if (empty($photoSizeSetting->hpx) || empty($photoSizeSetting->vpx)) {
                 Storage::disk('public')->put($folderPath . $imageName, file_get_contents($image), 'public');
@@ -121,7 +130,7 @@ class CompanionController extends Controller
                 'photo_setting_id' => 1
             ], [
                 'title' => $request->frm_title,
-                'photo' => $imageName . '?v=' . time(),
+                'photo' => $imageName,
                 'status' => 1
             ]);
         }
@@ -277,7 +286,17 @@ class CompanionController extends Controller
             $request->validate(['frm_photo' => 'required|image|max:10240']);
             $image = $request->file('frm_photo');
             $ext = $image->getClientOriginalExtension();
-            $imageName = $photoSizeSetting->prefix . '_' . $request->companion_id . '.' . $ext;
+            $imageName = $photoSizeSetting->prefix . '_' . $request->companion_id . '_' . time() . '.' . $ext;
+
+            // 古いファイルを削除
+            $existingPhoto = CompanionPhoto::where([
+                'companion_id' => $request->companion_id,
+                'photo_setting_id' => $request->photo_setting_id
+            ])->first();
+            if ($existingPhoto && $existingPhoto->photo) {
+                Storage::disk('public')->delete('photos/' . $request->companion_id . '/' . $existingPhoto->photo);
+            }
+
             if (empty($photoSizeSetting->hpx) || empty($photoSizeSetting->vpx)) {
                 Storage::disk('public')->put('photos/' . $request->companion_id . '/' . $imageName, file_get_contents($image), 'public');
             } else {
@@ -294,7 +313,7 @@ class CompanionController extends Controller
                 'photo_setting_id' => $request->photo_setting_id
             ], [
                 'title' => $request->frm_title,
-                'photo' => $imageName . '?v=' . time(),
+                'photo' => $imageName,
                 'status' => 1
             ]);
         }
@@ -538,8 +557,18 @@ class CompanionController extends Controller
                             //画像ファイルの内容を取得する。
                             $image = File::get($filePath.$image1);
                             $ext = pathinfo($filePath.$image1, PATHINFO_EXTENSION);//拡張子を取得
-                            //保存する新しい画像のファイル名を生成する。moto_id.jpgになる。
-                            $imageName = $photoSizeSetting->prefix.'_'.$companion->id.'.'.$ext;
+                            //保存する新しい画像のファイル名を生成する。moto_id_timestamp.jpgになる。
+                            $imageName = $photoSizeSetting->prefix.'_'.$companion->id.'_'.time().'.'.$ext;
+
+                            // 古いファイルを削除
+                            $existingPhoto = CompanionPhoto::where([
+                                'companion_id' => $companion->id,
+                                'photo_setting_id' => 1
+                            ])->first();
+                            if ($existingPhoto && $existingPhoto->photo) {
+                                Storage::disk('public')->delete('photos/' . $companion->id . '/' . $existingPhoto->photo);
+                            }
+
                             //画像サイズ設定に基づいて、画像リサイズするか決定。
                             if(empty($photoSizeSetting->hpx) || empty($photoSizeSetting->vpx)){
                                 //リサイズした画像もしくはオリジナル画像を公開ディスクに保存する。
@@ -556,7 +585,7 @@ class CompanionController extends Controller
                                 'photo_setting_id' => 1
                             ],[
                                 'title' =>  $request->frm_title,
-                                'photo' => $imageName.'?v='.time(),
+                                'photo' => $imageName,
                                 'status' => 1
                             ]);
                         }
