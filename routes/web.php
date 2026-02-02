@@ -85,8 +85,8 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function ()
 });
 
 Route::get('/admin/', [AuthController::class, 'index'])->name('admin.login');
-Route::get('/admin/login', [AuthController::class, 'index'])->name('admin.login');
-Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login');
+Route::get('/admin/login', [AuthController::class, 'index'])->name('admin.login.page');
+Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
 
 Route::get('/admin/forgotpassword', [AuthController::class, 'forgotpassword'])->name('forgot_password');
 Route::post('/admin/forgotpassword', [AuthController::class, 'forgotpasswordSave'])->name('forgot_password_save');
