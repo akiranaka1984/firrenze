@@ -1231,7 +1231,7 @@ NEW FACE
     transition: .6s all;
 }
 
-.article .model_link::before {
+.article .model_link .box::after {
     position: absolute;
     content: "";
     background: rgba(0, 0, 0, .8);
@@ -1239,18 +1239,17 @@ NEW FACE
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 5;
+    z-index: 4;
     opacity: 0;
     transition: .6s all;
 }
 
-.article .model_link:hover::before,
-.article .model_link:hover::after {
+.article .model_link:hover .box::after {
     opacity: 1;
 }
 
-.article .model_link:hover::before {
-    transform: scale(1.2);
+.article .model_link:hover::after {
+    opacity: 1;
 }
 
 .article .model_link:hover::after {
