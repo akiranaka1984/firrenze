@@ -50,6 +50,7 @@
         <script src="{{ url('/assets/js/select2.min.js') }}" defer></script>
         <script src="{{ url('/assets/js/dragula.min.js') }}"></script>
         <script src="{{ url('/assets/js/datatables.js') }}"></script>
+        <script src="{{ url('/assets/js/bootstrap.js') }}"></script>
         <script src="{{ url('/assets/js/fullcalendar.min.js') }}"></script>
         <script src="https://cdn.ckeditor.com/4.25.1/full/ckeditor.js"></script>
         <script src="{{ url('/assets/js/jquery.validate.min.js') }}"></script>
