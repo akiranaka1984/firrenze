@@ -22,11 +22,14 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UserReservationController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\UserHistoryController;
+use App\Http\Controllers\RecommendedPointController;
 
-// ルートへのアクセスを/publicにリダイレクトする設定
-Route::get('/', function () {
-    return redirect()->to('/firenze_dev/public');
-});
+// ローカル開発環境のみ /firenze_dev/public にリダイレクト
+if (app()->environment('local')) {
+    Route::get('/', function () {
+        return redirect()->to('/firenze_dev/public');
+    });
+}
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
 Route::get('/concept', [HomeController::class, 'concept'])->name('page.concept');
 //Route::get('/details', [HomeController::class, 'details'])->name('page.details');
@@ -68,8 +71,8 @@ Route::get('/register', [RegisterController::class, 'index'])->name('user.regist
 Route::post('/register/save', [RegisterController::class, 'save'])->name('user.register.save');
 
 Route::get('/login', [LoginController::class, 'index'])->name('user.login');
-Route::get('/user/login', [LoginController::class, 'index'])->name('user.login');
-Route::post('/user/login', [LoginController::class, 'login'])->name('user.login');
+Route::get('/user/login', [LoginController::class, 'index'])->name('user.login.page');
+Route::post('/user/login', [LoginController::class, 'login'])->name('user.login.submit');
 
 Route::get('/user/signout', [LoginController::class, 'signout'])->name('user.signout');
 
@@ -192,6 +195,11 @@ Route::group(['middleware' => ['auth', 'admin'] ,'prefix' => 'admin'], function 
 
     Route::get('/contact/list', [AdminController::class,'contact'])->name('admin.contact.list');
     Route::get('/contact/delete', [AdminController::class,'contact_delete'])->name('admin.contact.delete');
+
+    Route::get('/recommended_point/list', [RecommendedPointController::class, 'index'])->name('admin.recommended_point.list');
+    Route::post('/recommended_point/save', [RecommendedPointController::class, 'save'])->name('admin.recommended_point.save');
+    Route::get('/recommended_point/delete', [RecommendedPointController::class, 'delete'])->name('admin.recommended_point.delete');
+    Route::post('/recommended_point/position/save', [RecommendedPointController::class, 'position'])->name('admin.recommended_point.position.save');
 
     Route::get('/enrollment-table', [CompanionController::class, 'showEnrollmentTable'])->name('enrollment.table');
 });
