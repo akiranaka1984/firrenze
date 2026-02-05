@@ -114,9 +114,6 @@
                 </div>
             </div>
         </div>
-        @if($loop->iteration % 4 == 0 && $loop->remaining > 0)
-        <div class="clearfix visible-md visible-lg"></div>
-        @endif
     @endforeach
     </div>
 
