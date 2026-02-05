@@ -52,7 +52,7 @@
         <script src="{{ url('/assets/js/datatables.js') }}"></script>
         <script src="{{ url('/assets/js/bootstrap.js') }}"></script>
         <script src="{{ url('/assets/js/fullcalendar.min.js') }}"></script>
-        <script src="{{ url('/assets/js/ckeditor.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.22.1/ckeditor.js"></script>
         <script src="{{ url('/assets/js/jquery.validate.min.js') }}"></script>
         <script src="{{ url('/assets/js/additional-methods.min.js') }}"></script>
 
