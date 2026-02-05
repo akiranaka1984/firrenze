@@ -60,6 +60,17 @@
         <span>全 {{ $companions->count() }} 名</span>
     </div>
 
+    {{-- Debug: 最初の5件のposition確認 --}}
+    @php
+        $debugCompanions = $companions->sortBy('position')->take(5);
+    @endphp
+    <div style="background:#fff3cd;padding:10px;margin-bottom:10px;border-radius:4px;">
+        <strong>Debug (最初の5件):</strong>
+        @foreach($debugCompanions as $dc)
+            [ID:{{ $dc->id }} / Pos:{{ $dc->position ?? 'null' }} / Name:{{ $dc->name ?? 'empty' }}]
+        @endforeach
+    </div>
+
     <div class="row dragula" id="left-events">
     @foreach($companions->sortBy('position') as $index => $companion)
         @if(empty($companion['name']))
