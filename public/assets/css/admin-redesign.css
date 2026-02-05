@@ -1840,10 +1840,13 @@ a.sidemenu-href { text-decoration: none !important; }
 
 #left-events > .clearfix {
   display: none !important;
-  position: absolute !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
+}
+
+/* Bootstrap .row の clearfix 擬似要素を無効化（CSS Grid と競合するため） */
+#left-events::before,
+#left-events::after {
+  display: none !important;
+  content: none !important;
 }
 
 #left-events .panel {
