@@ -152,11 +152,11 @@ class CompanionController extends Controller
             'frm_cup' => 'required',
             'frm_waist' => 'required',
             'frm_hip' => 'required',
-            'frm_rookie' => 'required',
+            'frm_rookie' => 'required|array|min:1',
             'frm_sale_point' => 'required',
             'frm_entry_date' => 'required'
         ]);
-    
+
         // 現在の全モデルのpositionを1つずつ増やす
         Companion::increment('position');
     
@@ -220,7 +220,7 @@ class CompanionController extends Controller
             'frm_cup' => 'required',
             'frm_waist' => 'required',
             'frm_hip' => 'required',
-            'frm_rookie' => 'required',
+            'frm_rookie' => 'required|array|min:1',
             'frm_hobby' => 'required',
             'frm_sale_point' => 'required',
             'short_message' => 'required',
