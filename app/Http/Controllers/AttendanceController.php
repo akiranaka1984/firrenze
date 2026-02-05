@@ -85,8 +85,10 @@ class AttendanceController extends Controller
                 'message' =>  $request->message,
             ]);
         } else {
-            // 新規登録の場合は、新しい position を設定する
-            $count = Attendance::max('position');
+            // 新規登録の場合は、その日の既存レコードのpositionを1つずつ増やす
+            Attendance::where('date', $request->selected_date)->increment('position');
+
+            // 新規登録をposition=1で作成し、一番上に表示
             Attendance::create([
                 'companion_id' => $request->companion_id,
                 'date' => $request->selected_date,
@@ -96,7 +98,7 @@ class AttendanceController extends Controller
                 'hidden_hours' => $hidden_hours,
                 'without_end_time_display' => $without_end_time_display,
                 'message' =>  $request->message,
-                'position' => ($count + 1)
+                'position' => 1
             ]);
         }
     
@@ -174,26 +176,39 @@ class AttendanceController extends Controller
 
     public function bulk_save(Request $request)
     {
-
         $undetermined_hours = ($request->undetermined_hours == true) ? 1 : 0;
         $hidden_hours = ($request->hidden_hours == true) ? 1 : 0;
         $without_end_time_display = ($request->without_end_time_display == true) ? 1 : 0;
 
-        Attendance::updateOrInsert([
-            'companion_id' => $request->companion,
-            'date' => $request->date,
-        ],[
-            'start_time' => $request->start_date,
-            'end_time'  => $request->end_date,
-            'undetermined_hours' => $undetermined_hours,
-            'hidden_hours' => $hidden_hours,
-            'without_end_time_display' => $without_end_time_display
-        ]);
+        // 既存レコードがあるかチェック
+        $existingAttendance = Attendance::where('companion_id', $request->companion)
+            ->where('date', $request->date)
+            ->first();
 
-        $attendance = Attendance::where(['companion_id' => $request->companion,'date' => $request->date])->first();
-        if($attendance->position == 0){
-            $attendance->position = ((Attendance::where(['date' => $request->date])->max('position'))+1);
-            $attendance->save();
+        if ($existingAttendance) {
+            // 更新の場合はpositionを変更せず、その他の項目だけ更新
+            $existingAttendance->update([
+                'start_time' => $request->start_date,
+                'end_time'  => $request->end_date,
+                'undetermined_hours' => $undetermined_hours,
+                'hidden_hours' => $hidden_hours,
+                'without_end_time_display' => $without_end_time_display
+            ]);
+        } else {
+            // 新規登録の場合は、その日の既存レコードのpositionを1つずつ増やす
+            Attendance::where('date', $request->date)->increment('position');
+
+            // 新規登録をposition=1で作成し、一番上に表示
+            Attendance::create([
+                'companion_id' => $request->companion,
+                'date' => $request->date,
+                'start_time' => $request->start_date,
+                'end_time'  => $request->end_date,
+                'undetermined_hours' => $undetermined_hours,
+                'hidden_hours' => $hidden_hours,
+                'without_end_time_display' => $without_end_time_display,
+                'position' => 1
+            ]);
         }
 
         return response()->json(['status' => 1, 'message' => __('Save Changes')]);
