@@ -62,6 +62,9 @@
 
     <div class="row dragula" id="left-events">
     @foreach($companions->sortBy('position') as $index => $companion)
+        @if(empty($companion['name']))
+            @continue
+        @endif
         <div class="col-md-3 trow" data-id="{{ $companion->id }}">
             <div class="cmp-card">
                 <a href="{{ route('admin.companion.edit', ['id'=>$companion['id'], 'stab' => 1]) }}" class="cmp-card-img-link">

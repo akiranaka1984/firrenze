@@ -27,7 +27,9 @@ class CompanionController extends Controller
     public function index(Request $request)
     {
         $sql = Companion::with(['home_image', 'category'])
-            ->where('status', '!=', 3);
+            ->where('status', '!=', 3)
+            ->where('name', '!=', '')
+            ->whereNotNull('name');
     
         $search_q = '';
         if (!empty($request->search_q)) {
