@@ -163,11 +163,29 @@
 
 <script>
     let nPsitionObj = {}
-    $(document).ready(function(){
+    let ckeditorInitialized = false;
 
-        if (typeof CKEDITOR !== 'undefined') {
+    function initCKEditor() {
+        if (typeof CKEDITOR !== 'undefined' && !CKEDITOR.instances.frmText) {
             CKEDITOR.replace('frmText');
+            ckeditorInitialized = true;
         }
+    }
+
+    $(document).ready(function(){
+        // モーダルが表示されたときにCKEditorを初期化/リフレッシュ
+        $('#modal-1').on('shown.bs.modal', function() {
+            if (!ckeditorInitialized) {
+                initCKEditor();
+            }
+            // CKEditorのリサイズをトリガー
+            if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances.frmText) {
+                CKEDITOR.instances.frmText.resize('100%', 400);
+            }
+        });
+
+        // ページ読み込み時に初期化を試みる
+        initCKEditor();
 
         $(document).on('click','.showSendEmailModal', function(){
             $('#news_id').val('');

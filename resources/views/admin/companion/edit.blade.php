@@ -389,6 +389,10 @@
 
     <script>
         $(document).ready(function(){
+            // 店舗メッセージにCKEditorを適用
+            if (typeof CKEDITOR !== 'undefined') {
+                CKEDITOR.replace('frmShortMessage');
+            }
 
             $('#frmCompanion').validate({
                 ignore: [],
