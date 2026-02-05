@@ -368,7 +368,13 @@
                     }
 
                     data.forEach((item, index) => {
-                        let photoURL = item.companion.home_image
+                        // companionがnullの場合はスキップ
+                        if (!item.companion) {
+                            console.warn('Companion not found for attendance id:', item.id);
+                            return;
+                        }
+
+                        let photoURL = (item.companion.home_image && item.companion.home_image.photo)
                             ? `{{ url('/storage/photos') }}/` + item.companion_id + "/" + item.companion.home_image.photo
                             : `{{ url('/storage/photos') }}/default/images.jpg`;
 

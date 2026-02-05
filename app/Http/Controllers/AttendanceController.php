@@ -56,14 +56,12 @@ class AttendanceController extends Controller
 
     public function details(Request $request)
     {
-        $attendance = Attendance::with(['companion' => function ($query) {
-            $query->orderBy('updated_at', 'desc')->orderBy('id', 'desc'); // モデル一覧のソート順
-    }])
-    ->where('date', '=', $request->selectedDate)
-    ->get();
+        $attendance = Attendance::with(['companion'])
+            ->where('date', '=', $request->selectedDate)
+            ->get();
 
-    return response()->json($attendance);
-}
+        return response()->json($attendance);
+    }
 
     public function save(Request $request)
     {
